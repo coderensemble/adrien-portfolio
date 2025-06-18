@@ -1,4 +1,5 @@
-import { SideNavbar } from '../components/Header';
+import { SideNavbar } from '../components/navigation';
+import Start from '../components/start';
 export default function HomePage() {
   return (
     <>
@@ -6,6 +7,7 @@ export default function HomePage() {
       <section id="home" className="min-h-screen p-8">
         
         {/* contenu */}
+        <Start/>
       </section>
 
       <section id="works" className="min-h-screen p-8 pl-20">

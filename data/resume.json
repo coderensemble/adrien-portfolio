@@ -1,0 +1,44 @@
+{
+    "basics": {
+        "name": "Adrien Neyron",
+        "label": "Web Developer",
+        "email": "adrien.neyron@gmail.com",
+        "phone": "(+33) 6 81 58 25 95",
+        "picture": "an.png",
+        "x_title": "Hello, I'm",
+        "job1": "Web & Mobile",
+        "job2": "Developer",
+        "description": "Hello! I'm Adrien! Your web development enthusiast. Always down for something new and challenging! Just like markdown, I'm here to help you create beautifully formatted websites.",
+        "summary": "based in Araches, France.",
+        "keywords": "personal,website,portfolio,template,kit,adrien,neyron,webdev,web,developer,araches,france,react,github,linkedin,google,gitlab,telegram,material,design,ui,webapp,markdown",
+        "url": "https://adrienneyron.vercel.app/",
+        "location": {
+            "address": "XX XXXXX",
+            "postalCode": "XXXXX",
+            "city": "Araches",
+            "country": "France",
+            "countryCode": "FR",
+            "region": "Haute savoie"
+        },
+        "profiles": [
+            {
+                "network": "Email",
+                "username": "adrien.neyron@gmail.com",
+                "url": "mailto:adrien.neyron@gmail.com",
+                "x_icon": "fab fa-telegram-plane"
+            },
+            {
+                "network": "LinkedIn",
+                "username": "adrienneyron",
+                "url": "https://www.linkedin.com/in/adrienneyron/",
+                "x_icon": "fab fa-linkedin-in"
+            },
+            {
+                "network": "GitHub",
+                "username": "coderensemble",
+                "url": "https://github.com/coderensemble",
+                "x_icon": "fab fa-github"
+            }
+        ]
+    }
+}
