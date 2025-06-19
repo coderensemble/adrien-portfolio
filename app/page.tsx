@@ -1,3 +1,5 @@
+"use client";
+
 import { SideNavbar } from '../components/navigation';
 import Start from '../components/start';
 export default function HomePage() {

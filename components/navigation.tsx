@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Typography from "@mui/material/Typography";
 
 const navItems = [
   { id: "#home", label: "Home" },
@@ -27,12 +26,11 @@ export const SideNavbar: React.FC = () => {
     const observer = new IntersectionObserver(handleIntersect, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.6, // 60% de la section visible pour déclencher
+      threshold: 0.6,
     });
 
     navItems.forEach(({ id }) => {
       if (id === "#") {
-        // On suppose que la section home a l'id "home"
         const homeSection = document.getElementById("home");
         if (homeSection) observer.observe(homeSection);
       } else {
@@ -45,12 +43,16 @@ export const SideNavbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="fixed
+    <nav
+      className="
+        fixed
         flex
         flex-row-reverse
         top-[30%]
         left-[3rem]
-        transform -rotate-90 -translate-x-1/2">
+        transform -rotate-90 -translate-x-1/2
+      "
+    >
       {navItems.map(({ id, label }) => (
         <Link
           key={id}
@@ -62,8 +64,12 @@ export const SideNavbar: React.FC = () => {
             no-underline
             ${activeNav === id ? "text-[#d8b88d]" : "text-[#575757]"}
             hover:text-[#d8b88d]
-          `}>
-          <Typography>{label}</Typography>
+            font-semibold
+            text-lg
+            cursor-pointer
+          `}
+        >
+          <span>{label}</span>
         </Link>
       ))}
     </nav>
