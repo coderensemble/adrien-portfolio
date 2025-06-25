@@ -9,7 +9,7 @@ export default function Content() {
   const name = resume.basics.name;
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4 text-center">
+    <div className="max-w-4xl mx-auto text-left translate-x-20 translate-y-60">
       <h2 className="text-2xl md:text-3xl font-semibold mb-4">
         <TextDecrypt text={`${name}`} />
       </h2>

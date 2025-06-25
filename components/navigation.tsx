@@ -48,8 +48,9 @@ export const SideNavbar: React.FC = () => {
         fixed
         flex
         flex-row-reverse
-        top-[30%]
-        left-[3rem]
+        gap-7
+        top-[40%]
+        left-[2.8rem]
         transform -rotate-90 -translate-x-1/2
       "
     >
@@ -60,11 +61,10 @@ export const SideNavbar: React.FC = () => {
           passHref
           onClick={() => setActiveNav(id)}
           className={`
-            mr-5
+      
             no-underline
             ${activeNav === id ? "text-[#d8b88d]" : "text-[#575757]"}
             hover:text-[#d8b88d]
-            font-semibold
             text-lg
             cursor-pointer
           `}
