@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import TextDecrypt from "./textDecrypt";
+import TextDecrypt from "./textDecrypt/textDecrypt";
 import resume from "../data/resume.json";
 
 export default function Content() {
@@ -9,7 +9,7 @@ export default function Content() {
   const name = resume.basics.name;
 
   return (
-    <div className="max-w-4xl mx-auto text-left translate-x-20 translate-y-60">
+    <div className="min-h-screen flex justify-center flex-col ml-20">
       <h2 className="text-2xl md:text-3xl font-semibold mb-4">
         <TextDecrypt text={`${name}`} />
       </h2>
@@ -24,8 +24,7 @@ export default function Content() {
 
       <button
         onClick={() => setCountClients((prev) => prev + 1)}
-        className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-base font-medium"
-      >
+        className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-base font-medium w-1/2">
         Nouveau visiteur
       </button>
     </div>

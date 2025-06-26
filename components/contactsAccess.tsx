@@ -6,10 +6,10 @@ export default function ContactsAccess() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed top-6 right-6 z-50" onMouseEnter={() => setOpen(true)}
+    <div className="fixed top-12 right-0 z-50" onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}>
       <button
-        className="w-12 h-12 bg-white/20 text-white p-4 rounded-full shadow-lg hover:[#d8b88d] hover:bg-[#d8b88d] hover:setOpen transition hover:rotate-45 focus:outline-none flex items-center justify-center"
+        className="w-10 h-10 bg-white/18 text-white  rounded-full shadow-lg hover:[#d8b88d] hover:bg-[#d8b88d] hover:setOpen transition hover:rotate-45 focus:outline-none flex items-center justify-center"
       >
                 <Plus className="w-6 h-6 text-white transition-transform duration-300 " />
 

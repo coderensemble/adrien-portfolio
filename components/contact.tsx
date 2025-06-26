@@ -1,23 +1,23 @@
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import Swal from 'sweetalert2';
-import TextDecrypt from './textDecrypt';
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
+import TextDecrypt from "./textDecrypt/textDecrypt";
 
 export const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
   const greetings = "Let's work together!";
 
-const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
     if (form.current) {
       emailjs
-        .sendForm('service_dl9djrv', 'template_aybi97f', form.current, 'MD6rY0SPz1H_153O_')
+        .sendForm("service_dl9djrv", "template_aybi97f", form.current, "MD6rY0SPz1H_153O_")
         .then(() => {
           Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'You have sent an email!',
+            position: "center",
+            icon: "success",
+            title: "You have sent an email!",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -35,7 +35,9 @@ const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
           <form ref={form} onSubmit={sendEmail} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
+              <label htmlFor="name" className="block text-sm font-medium mb-1">
+                Name
+              </label>
               <input
                 id="name"
                 name="name"
@@ -46,7 +48,9 @@ const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
+              <label htmlFor="email" className="block text-sm font-medium mb-1">
+                Email
+              </label>
               <input
                 id="email"
                 name="email"
@@ -57,7 +61,9 @@ const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
+              <label htmlFor="message" className="block text-sm font-medium mb-1">
+                Message
+              </label>
               <textarea
                 id="message"
                 name="message"
@@ -69,8 +75,7 @@ const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded text-white font-semibold transition"
-            >
+              className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded text-white font-semibold transition">
               <i className="fas fa-terminal"></i> Send message
             </button>
           </form>
