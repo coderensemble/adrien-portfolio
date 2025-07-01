@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "components/background/three.ts"  ],
+, "components/Background/three.ts", "components/Background/background.tsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import profile from "../public/profile.png";
-import resume from "../data/resume.json";
-import TextDecrypt from "./textDecrypt/textDecrypt";
+import profile from "../../public/profile.png";
+import resume from "../../data/resume.json";
+import TextDecrypt from "../TextDecrypt/textDecrypt";
 
 export const About: React.FC = () => {
   const greetings = "Hello there!";

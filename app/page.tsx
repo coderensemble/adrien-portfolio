@@ -1,16 +1,18 @@
 "use client";
 
-import ContactsAccess from "@/components/contactsAccess";
+import ContactsAccess from "@/components/Sandwich";
 import { SideNavbar } from "@/components/navigation";
 import Start from "@/components/start";
 import { Works } from "@/components/works";
-import { About } from "@/components/about";
-import { Contact } from "@/components/contact";
-import { ThreeScene } from "@/components/background/ThreeScene";
+import { About } from "@/components/About/About";
+import { Contact } from "@/components/ContactMe";
+import { ThreeScene } from "@/components/Background/threeSceneDemo";
+import DisplacementSphere from "@/components/Background/background";
 export default function HomePage() {
   return (
     <>
       <div>
+        <DisplacementSphere />
         <section id="home" className="min-h-screen p-20">
           {/* contenu */}
           <Start />

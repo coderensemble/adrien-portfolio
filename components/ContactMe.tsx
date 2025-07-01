@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
-import TextDecrypt from "./textDecrypt/textDecrypt";
+import TextDecrypt from "./TextDecrypt/textDecrypt";
 
 export const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);

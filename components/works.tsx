@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import TextDecrypt from "./textDecrypt/textDecrypt";
+import TextDecrypt from "./TextDecrypt/textDecrypt";
 
 import AspiSport from "../public/recentprojects/aspirationSport.png";
 import PortFam from "../public/recentprojects/portfam.png";
@@ -78,7 +78,7 @@ export const Works: React.FC = () => {
     <section id="works" className="min-h-screen flex items-center justify-center">
       <div className="w-[100%] mx-auto">
         <div className="grid gap-12">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div key={project.id} className={`flex flex-col md:flex-row gap-8`}>
               {/* Image */}
               <div className="w-full md:w-[50em] max-w-full flex-shrink-0">

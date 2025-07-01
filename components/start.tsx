@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import TextDecrypt from "./textDecrypt/textDecrypt";
+import TextDecrypt from "./TextDecrypt/textDecrypt";
 import resume from "../data/resume.json";
 
 export default function Content() {
