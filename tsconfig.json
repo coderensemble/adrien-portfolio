@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "components/Background/three.ts", "components/Background/background.tsx"  ],
+, "components/Background/three.ts", "components/Background/background.tsx", "components/Background/explodingStar.js"  ],
   "exclude": [
     "node_modules"
   ]

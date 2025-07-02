@@ -7,12 +7,11 @@ import { Works } from "@/components/works";
 import { About } from "@/components/About/About";
 import { Contact } from "@/components/ContactMe";
 import { ThreeScene } from "@/components/Background/threeSceneDemo";
-import DisplacementSphere from "@/components/Background/background";
 export default function HomePage() {
   return (
     <>
       <div>
-        <DisplacementSphere />
+        <ThreeScene />
         <section id="home" className="min-h-screen p-20">
           {/* contenu */}
           <Start />
@@ -32,7 +31,6 @@ export default function HomePage() {
       </div>
       <SideNavbar />
       <ContactsAccess />
-      <ThreeScene />
     </>
   );
 }

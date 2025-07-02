@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* Couleurs sélectionnées sur texte */
 ::-moz-selection {
   background: #d8b88d;
   color: #fafafa;
@@ -10,36 +11,124 @@
   color: #fafafa;
   text-shadow: none;
 }
+
+/* Scrollbar très fine et transparente */
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
 
+/* Variables CSS pour palette luxe & dynamique */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #1B1B2F;       /* Bleu nuit profond */
+  --color-secondary: #F5A623;     /* Orange doré */
+  --color-metallic: #C0B283;      /* Or pâle */
+  --color-light: #F7F7F7;         /* Blanc cassé */
+  --color-shadow: #0D0D14;        /* Noir bleuté */
+  --color-energy: #E94F37;        /* Rouge vif */
+  --color-accent-blue: #3A86FF;   /* Bleu vif */
+
+  --background: var(--color-light);
+  --foreground: var(--color-primary);
+
   --font-sans: 'Arial', 'Helvetica', sans-serif;
   --font-mono: monospace;
 }
 
+/* Mode sombre */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-primary);
+    --foreground: var(--color-light);
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 p {
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
+}
+
+/* Liens avec accent dynamique */
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-energy);
+  outline: none;
+}
+
+/* Boutons avec style luxe & dynamique */
+button {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  border: none;
+  padding: 0.6em 1.2em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: var(--color-energy);
+  outline: none;
+}
+
+/* Titres pour contraste et élégance */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+/* Sélecteurs supplémentaires pour mise en page */
+code, pre {
+  font-family: var(--font-mono);
+  background-color: var(--color-shadow);
+  color: var(--color-light);
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  font-size: 0.9em;
+}
+
+/* Formulaires */
+input, textarea, select {
+  border: 1px solid var(--color-metallic);
+  padding: 0.5em;
+  border-radius: 0.3em;
+  font-family: var(--font-sans);
+  font-size: 1em;
+  color: var(--foreground);
+  background-color: var(--background);
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-secondary);
+  outline: none;
 }
