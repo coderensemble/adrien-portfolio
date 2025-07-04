@@ -6,7 +6,9 @@ import Start from "@/components/start";
 import { Works } from "@/components/works";
 import { About } from "@/components/About/About";
 import { Contact } from "@/components/ContactMe";
-import { ThreeScene } from "@/components/Background/threeSceneDemo";
+import { ThreeScene } from "@/components/Background/ThreeScene";
+import { ThemeToggle } from "@/theme/ThemeToggle";
+import { Resume } from "@/components/Resume/resume";
 export default function HomePage() {
   return (
     <>
@@ -28,6 +30,8 @@ export default function HomePage() {
         <section id="contact" className="min-h-screen p-20">
           <Contact />
         </section>
+        <ThemeToggle />
+        <Resume />
       </div>
       <SideNavbar />
       <ContactsAccess />

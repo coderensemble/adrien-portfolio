@@ -30,10 +30,11 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-12 px-4 bg-gray-900 text-white">
-      <div className="max-w-3xl mx-auto">
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-          <form ref={form} onSubmit={sendEmail} className="space-y-6">
+    <section id="contact" className="min-h-screen flex items-center">
+  <div className="w-full max-w-[90em] mx-auto flex flex-col md:flex-row md:justify-between md:space-x-12 space-y-6 md:space-y-0 items-center">
+    {/* Formulaire */}
+    <div className="w-[90%] sm:w-[30em] md:w-[40em] bg-white/30 border rounded-lg shadow-lg border-white">
+      <form ref={form} onSubmit={sendEmail} className="space-y-6 p-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-1">
                 Name
@@ -43,7 +44,7 @@ export const Contact: React.FC = () => {
                 name="name"
                 type="text"
                 required
-                className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 bg-white/30 text-white rounded focus:outline-none focus:ring-2 focus:ring-white-500"
               />
             </div>
 
@@ -56,7 +57,7 @@ export const Contact: React.FC = () => {
                 name="email"
                 type="email"
                 required
-                className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 bg-white/30 text-white rounded focus:outline-none focus:ring-2 focus:ring-white-500"
               />
             </div>
 
@@ -69,21 +70,29 @@ export const Contact: React.FC = () => {
                 name="message"
                 rows={5}
                 required
-                className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 bg-white/30 text-white rounded focus:outline-none focus:ring-2 focus:ring-white-500"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded text-white font-semibold transition">
+              className="w-full flex items-center justify-center gap-2 py-2 px-4
+            hover:bg-[#EDDD53] hover:text-[#0a0a0a]
+           rounded text-white font-semibold transition-colors duration-300">
               <i className="fas fa-terminal"></i> Send message
             </button>
           </form>
         </div>
-
-        <h1 className="mt-8 text-center text-2xl font-semibold">
-          <TextDecrypt text={greetings} />
-        </h1>
+        {/* Texte animé */}
+    <div
+      style={{ fontFamily: "var(--font-mono)" }}
+      className="w-[90%] md:w-[40%] flex items-center justify-center text-center"
+    >
+      <TextDecrypt
+        text={greetings}
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+      />
+        </div>
       </div>
     </section>
   );

@@ -1,19 +1,20 @@
-import { Sphere, Sparkles, MeshDistortMaterial } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
-import { useRef, useEffect } from 'react';
+import { Sphere, Sparkles, MeshDistortMaterial } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { useRef, useEffect } from "react";
+import { Mesh } from "three";
 
 export const ExplodingStar = () => {
-  const meshRef = useRef();
+  const meshRef = useRef<Mesh>(null); // Remplacer 'null!' par le type approprié();
 
   // Rotation cible à atteindre
-  const targetRotation = useRef({ x: 0, y: 0 });
+  const targetRotation = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   // Rotation actuelle (interpolée)
-  const currentRotation = useRef({ x: 0, y: 0 });
+  const currentRotation = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = () => {
+    const handleMouseMove = (event: MouseEvent) => {
       // Normaliser entre -1 et 1
-      const x = (event.clientX / window.innerWidth) * 2 - 1;  // -1 à 1
+      const x = (event.clientX / window.innerWidth) * 2 - 1; // -1 à 1
       const y = (event.clientY / window.innerHeight) * 2 - 1; // -1 à 1
 
       // Multiplier par amplitude de rotation souhaitée (radians)
@@ -23,8 +24,8 @@ export const ExplodingStar = () => {
       targetRotation.current.y = x * maxRotation; // rotation Y (gauche/droite)
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   useFrame(() => {
@@ -43,24 +44,21 @@ export const ExplodingStar = () => {
   });
 
   return (
-    <Sphere ref={meshRef} args={[2.5, 128, 128]} position={[6.5, 2.5, 0]}>
+    <Sphere ref={meshRef} args={[2.5, 128, 128]} position={[10, 3.5, 0]}>
       <MeshDistortMaterial
-        color="#F5A623"
+        color="#2A7B9B"
         attach="material"
-        distort={1.7}
-        speed={1}
+        distort={2}
+        speed={1.5}
         roughness={0.2}
-        emissive="#E94F37"
+        emissive="#57C785"
         emissiveIntensity={1}
         metalness={0.1}
+        transparent={true} // <- activer la transparence
+        opacity={0.2} // <- réduire l’opacité (0 = invisible, 1 = opaque)
+        depthWrite={false}
       />
-      <Sparkles
-        count={100}
-        scale={5}
-        size={0.2}
-        speed={1.5}
-        color="#C0B283"
-      />
+      <Sparkles count={50} scale={5} size={0.2} speed={1.5} color="#EDDD53" />
     </Sphere>
   );
 };

@@ -1,16 +1,62 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
 import TextDecrypt from "./TextDecrypt/textDecrypt";
 import resume from "../data/resume.json";
 
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY!;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 export default function Content() {
-  const [countClients, setCountClients] = useState(0);
+  const [countClients, setCountClients] = useState<number | null>(null);
   const name = resume.basics.name;
 
+  // Charger le compteur au chargement du composant
+  useEffect(() => {
+    async function fetchCount() {
+      const { data, error } = await supabase.from("visitor_count").select("count").eq("id", 1).single();
+
+      if (error) {
+        console.error("Erreur fetchCount:", error.message, error.details);
+        return;
+      }
+      setCountClients(data.count);
+    }
+    fetchCount();
+  }, []);
+
+  // Incrémente le compteur seulement si ce visiteur n'a pas encore été comptabilisé (localStorage)
+  useEffect(() => {
+    if (countClients === null) return;
+
+    // Clé pour marquer qu'on a déjà incrémenté ce visiteur
+    const localStorageKey = "portfolio_visitor_counted";
+
+    if (!localStorage.getItem(localStorageKey)) {
+      // Marque le visiteur comme comptabilisé
+      localStorage.setItem(localStorageKey, "true");
+
+      // Update compteur côté client et serveur
+      const incrementCount = async () => {
+        const newCount = countClients + 1;
+        setCountClients(newCount);
+
+        const { error } = await supabase.from("visitor_count").update({ count: newCount }).eq("id", 1);
+
+        if (error) {
+          console.error("Erreur incrementCount:", error.message, error.details);
+        }
+      };
+
+      incrementCount();
+    }
+  }, [countClients]);
+
   return (
-    <div className="min-h-screen flex justify-center flex-col ml-20">
-      <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+    <div className="min-h-screen flex justify-center flex-col ml-20" style={{ fontFamily: "var(--font-mono)" }}>
+      <h2 className="text-2xl md:text-3xl mb-4">
         <TextDecrypt text={`${name}`} />
       </h2>
 
@@ -20,13 +66,9 @@ export default function Content() {
         <TextDecrypt text={resume.basics.job2} />
       </h1>
 
-      <p className="text-lg text-gray-600 mb-4">{countClients} visiteurs</p>
-
-      <button
-        onClick={() => setCountClients((prev) => prev + 1)}
-        className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-base font-medium w-1/2">
-        Nouveau visiteur
-      </button>
+      <p className="text-lg text-gray-600 mb-4">
+        {countClients !== null ? `${countClients} visiteurs` : "Chargement..."}
+      </p>
     </div>
   );
 }

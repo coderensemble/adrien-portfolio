@@ -75,40 +75,42 @@ export const Works: React.FC = () => {
   ]);
 
   return (
-    <section id="works" className="min-h-screen flex items-center justify-center">
-      <div className="w-[100%] mx-auto">
+    <section id="works" className="min-h-screen flex flex-col items-center justify-center">
+      <div>
         <div className="grid gap-12">
           {projects.map((project) => (
             <div key={project.id} className={`flex flex-col md:flex-row gap-8`}>
               {/* Image */}
               <div className="w-full md:w-[50em] max-w-full flex-shrink-0">
-                <Image src={project.image} alt={project.alt} className="w-full object-cover rounded-lg shadow-lg" />
+                <Image src={project.image} alt={project.alt} />
               </div>
               {/* Content */}
-              <div className="w-full md:w-[50%] flex flex-col items-center justify-center p-6 rounded-xl bg-white/30 backdrop-blur-md shadow-lg border border-white/50">
-                <h3 className="text-xl font-semibold mb-2 text-white-800 text-center">
-                  <TextDecrypt text={`${project.id}. ${project.title}`} />
-                </h3>
-                <p className="text-white-700 text-sm mb-4 whitespace-pre-line text-center">{project.description}</p>
-                <div className="flex flex-wrap gap-4 mt-auto">
-                  {project.href !== "none" && (
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#d8b88d] text-sm hover:underline">
-                      See the website
-                    </a>
-                  )}
-                  {project.hrefCode !== "none" && (
-                    <a
-                      href={project.hrefCode}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#d8b88d] text-sm hover:underline">
-                      Explore the code
-                    </a>
-                  )}
+              <div className="w-full md:w-auto flex flex-col items-center justify-center p-6">
+                <div className="w-full max-w-xl rounded-xl bg-white/30 backdrop-blur-md shadow-lg border border-white/50 p-6">
+                  <h3 className="text-2xl font-semibold mb-2 text-white-800 text-center " style={{ fontFamily: "var(--font-mono)" }}>
+                    <TextDecrypt text={`${project.id}. ${project.title}`} />
+                  </h3>
+                  <p className="text-white-700 text-md mb-4 whitespace-pre-line text-center">{project.description}</p>
+                  <div className="flex flex-wrap gap-4 mt-auto">
+                    {project.href !== "none" && (
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#EDDD53] text-md hover:underline">
+                        See the website
+                      </a>
+                    )}
+                    {project.hrefCode !== "none" && (
+                      <a
+                        href={project.hrefCode}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#EDDD53] text-md hover:underline">
+                        Explore the code
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

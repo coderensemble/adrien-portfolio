@@ -63,8 +63,8 @@ export const SideNavbar: React.FC = () => {
           className={`
       
             no-underline
-            ${activeNav === id ? "text-[#d8b88d]" : "text-[#575757]"}
-            hover:text-[#d8b88d]
+            ${activeNav === id ? "text-[#EDDD53]" : "text-[#575757]"}
+            hover:text-[#EDDD53]
             text-lg
             cursor-pointer
           `}

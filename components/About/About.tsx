@@ -10,15 +10,15 @@ export const About: React.FC = () => {
 
   return (
     <section id="about" className="min-h-screen flex items-center justify-center">
-      <div className="w-[60%] mx-auto bg-white border rounded-3xl shadow-lg flex flex-col ">
+      <div className="w-[60%] mx-auto bg-white/30 border rounded-3xl shadow-lg flex flex-col ">
         <div className="flex justify-center">
-          <Image src={profile} alt="Profile" className="w-[60%] mt-10  rounded-xl shadow-lg border border-white/50 " />
+          <Image src={profile} alt="Profile" className="w-[40%] mt-10  rounded-xl shadow-lg border border-white/50 " />
         </div>
         <div className="_content_wrapper flex flex-col text-center m-10">
-          <h2 className="text-2xl font-semibold">
-            <TextDecrypt className="text-black" text={greetings} />
+          <h2 className="text-2xl font-semibold" style={{ fontFamily: "var(--font-mono)" }}>
+            <TextDecrypt className="text-white" text={greetings} />
           </h2>
-          <p className="text-black">{aboutme}</p>
+          <p className="text-white">{aboutme}</p>
         </div>
       </div>
     </section>

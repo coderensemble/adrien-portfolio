@@ -1,44 +1,27 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
-import { Tooltip, IconButton, Zoom } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { Brightness4, Brightness7 } from "@material-ui/icons";
-
-const useStyles = makeStyles((theme) => ({
-  iconButton: {
-    position: "fixed",
-    bottom: theme.spacing(6),
-    right: theme.spacing(6),
-    height: "2.5rem",
-    width: "2.5rem",
-  },
-  icon: {
-    fontSize: "1.25rem",
-  },
-}));
 
 export const ThemeToggle = () => {
-    const { theme, toggleTheme } = useContext(ThemeContext);
-    const classes = useStyles();
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
-    return (
-      <Tooltip
-        title={"Light"}
-        placement="right"
-        TransitionComponent={Zoom}
+  return (
+    <div className="fixed bottom-6 right-6 sm:bottom-6 sm:right-6 z-50 group">
+      <button
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+        className="w-10 h-10 flex items-center justify-center bg-white/10 border border-white text-white rounded-full hover:bg-[#575757] hover:text-black transition-colors"
       >
-        <IconButton
-          color="inherit"
-          onClick={toggleTheme}
-          aria-label={"Toggle theme"}
-          className={classes.iconButton}
-        >
-          {theme === "light" ? (
-              <Brightness4 className={classes.icon} />
-          ) : (
-              <Brightness7 className={classes.icon} />
-          )}
-        </IconButton>
-      </Tooltip>
-    );
+        {theme === "light" ? (
+          <i className="fas fa-moon text-base" />
+        ) : (
+          <i className="fas fa-sun text-base" />
+        )}
+      </button>
+
+      {/* Tooltip visible au hover */}
+      <div className="absolute right-12 top-1/2 -translate-y-1/2 px-2 py-1 text-sm text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+        {theme === "light" ? "Mode sombre" : "Mode clair"}
+      </div>
+    </div>
+  );
 };
