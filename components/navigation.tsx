@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
+
 const navItems = [
   { id: "#home", label: "Home" },
   { id: "#works", label: "Projects" },
@@ -44,15 +45,16 @@ export const SideNavbar: React.FC = () => {
 
   return (
     <nav
-      className="
-        fixed
-        flex
-        flex-row-reverse
-        gap-7
-        top-[40%]
-        left-[2.8rem]
-        transform -rotate-90 -translate-x-1/2
-      "
+ className="
+    fixed
+    flex
+    flex-row-reverse
+    gap-7
+    top-[40%]
+    left-[2.5em]
+    transform -rotate-90 -translate-x-1/2
+   sm:gap-4 sm:text-sm
+  "
     >
       {navItems.map(({ id, label }) => (
         <Link

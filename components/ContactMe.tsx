@@ -76,9 +76,9 @@ export const Contact: React.FC = () => {
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 py-2 px-4
+              className="w-full flex items-center justify-center gap-2 py-2 px-4 hover:border-[#EDDD53]
             hover:bg-[#EDDD53] hover:text-[#0a0a0a]
-           rounded text-white font-semibold transition-colors duration-300">
+           rounded font-semibold border border-white transition-colors duration-300">
               <i className="fas fa-terminal"></i> Send message
             </button>
           </form>

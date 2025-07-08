@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 ::-moz-selection {
-  background: #EDDD53;
+  background: #eddd53;
   color: #fafafa;
   text-shadow: none;
 }
 ::selection {
-  background: #EDDD53;
+  background: #eddd53;
   color: #fafafa;
   text-shadow: none;
 }
@@ -18,18 +18,27 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-sans: 'Arial', 'Helvetica', sans-serif;
+  --font-sans: "Arial", "Helvetica", sans-serif;
   --font-mono: monospace;
 }
 
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
 body {
-  background: #ffffff;
-  color: #171717;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-html.dark body {
-  background: #171717;
-  color: #ededed;
+/* Ici, la vraie règle pour le mode dark quand la classe dark est présente */
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 html {

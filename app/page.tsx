@@ -6,6 +6,7 @@ import Start from "@/components/start";
 import { Works } from "@/components/works";
 import { About } from "@/components/About/About";
 import { Contact } from "@/components/ContactMe";
+import Footer from "@/components/Footer";
 import { ThreeScene } from "@/components/Background/ThreeScene";
 import { ThemeToggle } from "@/theme/ThemeToggle";
 import { Resume } from "@/components/Resume/resume";
@@ -31,10 +32,11 @@ export default function HomePage() {
           <Contact />
         </section>
         <ThemeToggle />
-        <Resume />
       </div>
       <SideNavbar />
       <ContactsAccess />
+      <Resume />
+      <Footer />
     </>
   );
 }

@@ -55,12 +55,12 @@ export default function Content() {
   }, [countClients]);
 
   return (
-    <div className="min-h-screen flex justify-center flex-col ml-20" style={{ fontFamily: "var(--font-mono)" }}>
-      <h2 className="text-2xl md:text-3xl mb-4">
+    <div className="min-h-screen flex justify-center flex-col md:ml-30" style={{ fontFamily: "var(--font-mono)" }}>
+      <h2 className="text-2xl md:text-3xlmb-4">
         <TextDecrypt text={`${name}`} />
       </h2>
 
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+      <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
         <TextDecrypt text={resume.basics.job1} />
         <br />
         <TextDecrypt text={resume.basics.job2} />
