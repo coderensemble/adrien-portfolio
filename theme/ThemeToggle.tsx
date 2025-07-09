@@ -46,7 +46,7 @@ export const ThemeToggle: React.FC = () => {
         onMouseLeave={() => setHovered(false)}
         className={`w-12 h-12 flex items-center justify-center border-white/50 rounded-full transition-colors duration-300 bg-white text-[#171717] ${
       isLight
-        ? "hover:bg-[#2A7B9B]"
+        ? "hover:bg-[#61DAFB]"
         : "hover:bg-[#EDDD53]"
     }
            

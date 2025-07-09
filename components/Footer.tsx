@@ -15,7 +15,7 @@ export default function Footer() {
       <p className={`text-sm mb-2 ${textColor}`}>Adrien Neyron – 2025 &copy; Tous droits réservés</p>
       <p className={`opacity-70 ${textColor}`}>
         Construit avec <span className="font-semibold text-[#61DAFB]">React</span>,{" "}
-        <span className="font-semibold text-white dark:text-yellow-300">Next.js</span> et{" "}
+        <span className="font-semibold text-white dark:text-[#EDDD53]">Next.js</span> et{" "}
         <span className="font-semibold text-[#57C785]">Three.js</span>
       </p>
     </footer>

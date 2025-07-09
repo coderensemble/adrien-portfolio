@@ -24,7 +24,7 @@ export const Works: React.FC = () => {
       id: 1,
       title: "C + Paie",
       description: `Showcase site in React & TailwindCSS to increase the visibility and sales of the company`,
-      href: `none`,
+      href: `https://cpluspaie.vercel.app/`,
       hrefCode: `none`,
       alt: "C + Paie",
       image: Cpaie,
