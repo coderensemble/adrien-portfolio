@@ -11,7 +11,6 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function Content() {
   const [countClients, setCountClients] = useState<number | null>(null);
-  const name = resume.basics.name;
 
   // Charger le compteur au chargement du composant
   useEffect(() => {
@@ -56,16 +55,16 @@ export default function Content() {
 
   return (
     <div className="min-h-screen flex justify-center flex-col md:ml-30" style={{ fontFamily: "var(--font-mono)" }}>
-      <h2 className="text-2xl md:text-3xl mb-4">
-        <TextDecrypt text={`${name}`} />
-      </h2>
-
-      <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-        <TextDecrypt text={resume.basics.job1} />
+       <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
+        <TextDecrypt text={resume.basics.label} />
       </h1>
 
+      <h2 className="text-2xl md:text-3xl mb-4">
+        <TextDecrypt text={resume.basics.job1} />
+      </h2>
+
       <h2 className="text-2xl md:text-3xl text-gray-600 mb-4 w-2/3 max-w-screen-md">
-        {resume.basics.job2}
+        {resume.basics.name}{resume.basics.job2}
       </h2>
 
       <p className="text-lg text-gray-600 mb-4">
