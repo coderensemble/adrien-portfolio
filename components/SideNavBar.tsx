@@ -50,7 +50,7 @@ export const SideNavbar: React.FC = () => {
     flex
     flex-row-reverse
     gap-7
-    top-[40%]
+    top-[50%]
     left-[2.5em]
     transform -rotate-90 -translate-x-1/2
    sm:gap-4 sm:text-sm
@@ -65,7 +65,7 @@ export const SideNavbar: React.FC = () => {
           className={`
       
             no-underline
-            ${activeNav === id ? "text-[#EDDD53]" : "text-[#575757]"}
+            ${activeNav === id ? "text-[#57C785]" : "text-[#575757]"}
             hover:text-[#EDDD53]
             text-lg
             cursor-pointer

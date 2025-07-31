@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
-import TextDecrypt from "./TextDecrypt/textDecrypt";
+import TextDecrypt from "../textDecrypt";
 
 export const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -31,10 +31,10 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="min-h-screen flex items-center">
-  <div className="w-full max-w-[90em] mx-auto flex flex-col md:flex-row md:justify-between md:space-x-12 space-y-6 md:space-y-0 items-center">
-    {/* Formulaire */}
-    <div className="w-[90%] sm:w-[30em] md:w-[40em] bg-white/30 border rounded-lg shadow-lg border-white">
-      <form ref={form} onSubmit={sendEmail} className="space-y-6 p-6">
+      <div className="w-full max-w-[90em] mx-auto flex flex-col md:flex-row md:justify-between md:space-x-12 space-y-6 md:space-y-0 items-center">
+        {/* Formulaire */}
+        <div className="w-[90%] sm:w-[30em] md:w-[40em] bg-white/30 border rounded-lg shadow-lg border-white">
+          <form ref={form} onSubmit={sendEmail} className="space-y-6 p-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-1">
                 Name
@@ -84,14 +84,10 @@ export const Contact: React.FC = () => {
           </form>
         </div>
         {/* Texte animé */}
-    <div
-      style={{ fontFamily: "var(--font-mono)" }}
-      className="w-[90%] md:w-[40%] flex items-center justify-center text-center"
-    >
-      <TextDecrypt
-        text={greetings}
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
-      />
+        <div
+          style={{ fontFamily: "var(--font-mono)" }}
+          className="w-[90%] md:w-[40%] flex items-center justify-center text-center">
+          <TextDecrypt text={greetings} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl" />
         </div>
       </div>
     </section>

@@ -63,10 +63,10 @@ export const ExplodingStar = () => {
 
   return (
     // Retirer la div ici
-    <Sphere ref={meshRef} args={[2.5, 128, 128]} position={[xPosition, 3.5, 0]}>
+    <Sphere ref={meshRef} args={[1.4, 10, 128]} position={[xPosition, 9, 0]}>
       <MeshDistortMaterial
         color="#2A7B9B"
-        distort={2}
+        distort={1.5}
         speed={1.5}
         roughness={0.2}
         emissive="#57C785"

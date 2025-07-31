@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import TextDecrypt from "./TextDecrypt/textDecrypt";
+import TextDecrypt from "../textDecrypt";
 
-import AspiSport from "../public/recentprojects/aspirationSport.png";
-import PortFam from "../public/recentprojects/portfam.png";
-import Cpaie from "../public/recentprojects/cpaie.png";
-import DressMeUp from "../public/recentprojects/dressmeup.png";
-import Morning from "../public/recentprojects/morning.png";
+import AspiSport from "../../public/recentprojects/aspirationSport.png";
+import PortFam from "../../public/recentprojects/portfam.png";
+import Cpaie from "../../public/recentprojects/cpaie.png";
+import DressMeUp from "../../public/recentprojects/dressmeup.png";
+import Morning from "../../public/recentprojects/morning.png";
 
 interface Project {
   id: number;
@@ -87,7 +87,9 @@ export const Works: React.FC = () => {
               {/* Content */}
               <div className="w-full md:w-auto flex flex-col items-center justify-center p-6">
                 <div className="w-full max-w-xl rounded-xl bg-white/30 backdrop-blur-md shadow-lg border border-white/50 p-6">
-                  <h3 className="text-2xl font-semibold mb-2 text-white-800 text-center " style={{ fontFamily: "var(--font-mono)" }}>
+                  <h3
+                    className="text-2xl font-semibold mb-2 text-white-800 text-center "
+                    style={{ fontFamily: "var(--font-mono)" }}>
                     <TextDecrypt text={`${project.id}. ${project.title}`} />
                   </h3>
                   <p className="text-white-700 text-md mb-4 whitespace-pre-line text-center">{project.description}</p>

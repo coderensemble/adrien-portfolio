@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
-import TextDecrypt from "./TextDecrypt/textDecrypt";
-import resume from "../data/resume.json";
+import TextDecrypt from "../textDecrypt";
+import resume from "../../data/resume.json";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY!;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-export default function Content() {
+export const Home: React.FC = () => {
   const [countClients, setCountClients] = useState<number | null>(null);
 
   // Charger le compteur au chargement du composant
@@ -55,7 +55,8 @@ export default function Content() {
 
   return (
     <div className="min-h-screen flex justify-center flex-col md:ml-30" style={{ fontFamily: "var(--font-mono)" }}>
-       <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
+      {resume.basics.name}
+      <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
         <TextDecrypt text={resume.basics.label} />
       </h1>
 
@@ -64,7 +65,7 @@ export default function Content() {
       </h2>
 
       <h2 className="text-2xl md:text-3xl text-gray-600 mb-4 w-2/3 max-w-screen-md">
-        {resume.basics.name}{resume.basics.job2}
+        {resume.basics.job2}
       </h2>
 
       <p className="text-lg text-gray-600 mb-4">

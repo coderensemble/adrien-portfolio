@@ -26,7 +26,7 @@ export default function ContactsAccess() {
   const isDark = theme === "dark";
 
   return (
-    <div className="fixed top-[4em] right-[4em] sm:top-[2.5em] sm:right-[2.5em] flex flex-col items-end">
+    <div className="fixed top-[6em] right-[4em] sm:top-[3.5em] sm:right-[2.5em] flex flex-col items-end">
       <button
         onClick={() => setOpen(!open)}
         className={`w-10 h-10 rounded-full shadow-lg md:hidden flex items-center justify-center transition-transform duration-300 focus:outline-none
