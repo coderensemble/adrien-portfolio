@@ -67,7 +67,7 @@ export const ExplodingStar = () => {
       <MeshDistortMaterial
         color="#2A7B9B"
         distort={1.5}
-        speed={1.5}
+        speed={0.5}
         roughness={0.2}
         emissive="#57C785"
         emissiveIntensity={1}

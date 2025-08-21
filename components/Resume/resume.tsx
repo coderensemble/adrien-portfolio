@@ -1,5 +1,5 @@
 import React from "react";
-import TextDecrypt from "../textDecrypt";
+import TextDecrypt from "../ui/textDecrypt";
 import { FileText } from "lucide-react";
 
 export const Resume: React.FC = () => {

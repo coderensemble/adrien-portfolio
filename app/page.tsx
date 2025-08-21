@@ -1,17 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
-import ContactsAccess from "@/components/Sandwich";
-import { SideNavbar } from "@/components/SideNavBar";
+import ContactsAccess from "@/components/ui/Sandwich";
+import { SideNavbar } from "@/components/ui/SideNavBar";
 import { Header } from "@/components/Header";
-import { Home } from "@/components/Home/Home";
-import { Works } from "@/components/Projects/Projects";
-import { About } from "@/components/About/About";
-import { Contact } from "@/components/Contact/Contact";
+import { Home } from "@/components/home/Home";
+import { Works } from "@/components/projects/Projects";
+import { About } from "@/components/about/About";
+import { Contact } from "@/components/contact/Contact";
 import Footer from "@/components/Footer";
-import { ThreeScene } from "@/components/Background/ThreeScene";
+import { ThreeScene } from "@/components/background/ThreeScene";
 import { ThemeToggle } from "@/theme/ThemeToggle";
-import { Resume } from "@/components/Resume/resume";
+import { Resume } from "@/components/resume/resume";
+import { AnimatedSection } from "@/components/ui/animatedSection";
 export default function HomePage() {
   useEffect(() => {
     const progress = document.getElementById("scroll-progress") as HTMLProgressElement;
@@ -32,16 +33,19 @@ export default function HomePage() {
       <div>
         <ThreeScene />
         <Header />
-        <section id="home" className="min-h-screen p-20">
+        <AnimatedSection>
+          <section id="home" className="min-h-screen p-20 blackdrop-blur-sm">
           {/* contenu */}
           <Home />
-        </section>
-
-        <section id="works" className="min-h-screen p-20">
+          </section>
+        </AnimatedSection>
+<AnimatedSection>
+        <section id="works" className="min-h-screen p-20 bg-gradient-to-t from-black via-black/80 to-transparent">
           <Works />
         </section>
+        </AnimatedSection>
 
-        <section id="about" className="min-h-screen p-20">
+        <section id="about" className="min-h-screen p-20 bg-gradient-to-b from-black via-black/80 to-transparent">
           <About />
         </section>
 

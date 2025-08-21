@@ -1,76 +1,48 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
-import TextDecrypt from "../textDecrypt";
+import TextDecrypt from "../ui/textDecrypt";
 import resume from "../../data/resume.json";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY!;
-const supabase = createClient(supabaseUrl, supabaseKey);
-
 export const Home: React.FC = () => {
-  const [countClients, setCountClients] = useState<number | null>(null);
-
-  // Charger le compteur au chargement du composant
-  useEffect(() => {
-    async function fetchCount() {
-      const { data, error } = await supabase.from("visitor_count").select("count").eq("id", 1).single();
-
-      if (error) {
-        console.error("Erreur fetchCount:", error.message, error.details);
-        return;
-      }
-      setCountClients(data.count);
-    }
-    fetchCount();
-  }, []);
-
-  // Incrémente le compteur seulement si ce visiteur n'a pas encore été comptabilisé (localStorage)
-  useEffect(() => {
-    if (countClients === null) return;
-
-    // Clé pour marquer qu'on a déjà incrémenté ce visiteur
-    const localStorageKey = "portfolio_visitor_counted";
-
-    if (!localStorage.getItem(localStorageKey)) {
-      // Marque le visiteur comme comptabilisé
-      localStorage.setItem(localStorageKey, "true");
-
-      // Update compteur côté client et serveur
-      const incrementCount = async () => {
-        const newCount = countClients + 1;
-        setCountClients(newCount);
-
-        const { error } = await supabase.from("visitor_count").update({ count: newCount }).eq("id", 1);
-
-        if (error) {
-          console.error("Erreur incrementCount:", error.message, error.details);
-        }
-      };
-
-      incrementCount();
-    }
-  }, [countClients]);
-
   return (
-    <div className="min-h-screen flex justify-center flex-col md:ml-30" style={{ fontFamily: "var(--font-mono)" }}>
-      {resume.basics.name}
-      <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-        <TextDecrypt text={resume.basics.label} />
-      </h1>
+    <div className="min-h-screen flex flex-col md:flex-row justify-between items-stretch mt-20 px-3 ">
 
-      <h2 className="text-2xl md:text-3xl mb-4">
-        <TextDecrypt text={resume.basics.job1} />
-      </h2>
+       {/* Colonne gauche */}
+      <div className="flex-1 flex items-start">
+        <div className="text-4xl sm:text-5xl font-bold leading-tight text-[#57C785]">
+          {resume.basics.job1}
+        </div>
+      </div>
 
-      <h2 className="text-2xl md:text-3xl text-gray-600 mb-4 w-2/3 max-w-screen-md">
-        {resume.basics.job2}
-      </h2>
+{/* Colonne droite */}
+      <div className="flex-1 flex flex-col justify-end items-end mb-80 mr-0">
+        {/* Titre principal */}
+        <h1 className="text-4xl sm:text-5xl md:w-2/3 font-bold mb-6 leading-tight text-[#57C785]">
+          <TextDecrypt text={resume.basics.job1} />
+        </h1>
 
-      <p className="text-lg text-gray-600 mb-4">
-        {countClients !== null ? `${countClients} visiteurs` : "Chargement..."}
-      </p>
+        {/* Sous-titre 1 */}
+        <h2 className="text-2xl md:text-3xl w-full md:w-2/3 mb-6 text-white">{resume.basics.job2}</h2>
+
+        {/* Boutons d'action */}
+        <div className="flex flex-wrap gap-4">
+          <a
+            href="#projects"
+            className="relative overflow-hidden px-6 py-3 rounded-2xl font-semibold shadow-md bg-[#57C785] text-white group">
+            {/* Texte défilant */}
+            <span className="absolute top-0 left-0 h-full flex items-center scroll-text-container w-28">
+              <span className="scroll-text">See my projects See my projects See my projects See my projects</span>
+            </span>
+          </a>
+
+          <a
+            href="#contact"
+            className="border border-[#57C785] text-[#57C785] hover:bg-[#57C785] hover:text-white px-6 py-3 rounded-2xl font-semibold transition w-35">
+            Contact me
+          </a>
+        </div>
+      </div>
+     
     </div>
   );
-}
+};

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import profile from "../../public/profile.png";
 import resume from "../../data/resume.json";
-import TextDecrypt from "../textDecrypt";
+import TextDecrypt from "../ui/textDecrypt";
 
 export const About: React.FC = () => {
   const greetings = "Hello there!";

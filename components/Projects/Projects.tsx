@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import TextDecrypt from "../textDecrypt";
+import TextDecrypt from "../ui/textDecrypt";
 
 import AspiSport from "../../public/recentprojects/aspirationSport.png";
 import PortFam from "../../public/recentprojects/portfam.png";
