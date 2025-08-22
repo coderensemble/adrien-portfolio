@@ -28,14 +28,11 @@ Il a été construit avec une stack moderne et optimisée pour la performance et
 
 Pour lancer le projet en local :
 
-# Cloner le repo
+Cloner le repo
 ```git clone https://github.com/coderensemble/adrien-portfolio.git```
-
-# Accéder au projet
+Accéder au projet
 ```cd adrien-portfolio```
-
-# Installer les dépendances
+Installer les dépendances
 ```npm install```
-
-# Démarrer le serveur de dev
+Démarrer le serveur de dev
 ```npm run dev```
