@@ -81,7 +81,7 @@ export const Header = () => {
       <div className="flex flex-col sm:flex-row justify-between items-center px-[2.5em] py-3 text-white text-sm gap-1 sm:gap-0">
         {/* Title */}
         <div className="flex flex-col items-center sm:items-start">
-          <Link href="/" className="font-semibold">
+          <Link href="/" className="font-semibold hover:text-[#EDDD53]">
             {resume.basics.name}
           </Link>
           <span className="opacity-70">{resume.basics.label}</span>
@@ -95,8 +95,7 @@ export const Header = () => {
             </Link>
 
             {/* Tooltip/Modal au survol */}
-            <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-48 rounded-xl bg-black text-white text-sm p-3 shadow-lg hidden group-hover:block text-center">
-              {countClients !== null
+<div className="fixed left-1/2 w-80 rounded-2xl text-white text-sm hidden group-hover:block text-center z-[70] p-3 top-2">              {countClients !== null
                 ? `Already ${countClients} visitors curious about my projects 🚀`
                 : "Chargement..."}
             </div>

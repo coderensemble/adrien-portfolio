@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import ContactsAccess from "@/components/ui/Sandwich";
 import { SideNavbar } from "@/components/ui/SideNavBar";
 import { Header } from "@/components/Header";
-import { Home } from "@/components/home/Home";
-import { Works } from "@/components/projects/Projects";
-import { About } from "@/components/about/About";
-import { Contact } from "@/components/contact/Contact";
+import { Home } from "@/app/home/page";
+import  ProjectsPage from "@/app/projects/page";
+import { About } from "@/app/about/page";
+import { Contact } from "@/app/contact/page";
 import Footer from "@/components/Footer";
 import { ThreeScene } from "@/components/background/ThreeScene";
 import { ThemeToggle } from "@/theme/ThemeToggle";
@@ -34,22 +34,22 @@ export default function HomePage() {
         <ThreeScene />
         <Header />
         <AnimatedSection>
-          <section id="home" className="min-h-screen p-20 blackdrop-blur-sm">
-          {/* contenu */}
-          <Home />
+          <section id="home" className="min-h-screen pt-12 px-6 sm:px-12 lg:px-20 blackdrop-blur-sm">
+            {/* contenu */}
+            <Home />
           </section>
         </AnimatedSection>
-<AnimatedSection>
-        <section id="works" className="min-h-screen p-20 bg-gradient-to-t from-black via-black/80 to-transparent">
-          <Works />
-        </section>
+        <AnimatedSection>
+          <section id="works" className="min-h-screen pt-12 px-6 sm:px-12 lg:px-20 bg-gradient-to-t from-black via-black/80 to-transparent">
+            <ProjectsPage />
+          </section>
         </AnimatedSection>
 
-        <section id="about" className="min-h-screen p-20 bg-gradient-to-b from-black via-black/80 to-transparent">
+        <section id="about" className="min-h-screen pt-12 px-6 sm:px-12 lg:px-20 bg-gradient-to-b from-black via-black/80 to-transparent">
           <About />
         </section>
 
-        <section id="contact" className="min-h-screen p-20">
+        <section id="contact" className="min-h-screen pt-12 px-6 sm:px-12 lg:px-20">
           <Contact />
         </section>
         <ThemeToggle />

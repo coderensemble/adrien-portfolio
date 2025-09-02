@@ -12,6 +12,7 @@ export default function Head() {
         crossOrigin="anonymous"
         referrerPolicy="no-referrer"
       />
+      
       {/* Ajoute ici d'autres meta tags si besoin */}
   
     </>
