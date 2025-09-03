@@ -16,21 +16,27 @@ export const About: React.FC = () => {
 
   const [hovered, setHovered] = useState(false);
 
-  // Split le texte en phrases pour l’animation
+  // Découper en phrases
   const sentences = aboutme.split(". ");
 
   return (
-    <section
-      id="about"
-      className="min-h-screen flex items-center justify-center py-20 "
-    >
-      <div className="w-[90%] max-w-5xl mx-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-xl flex flex-col md:flex-row items-center overflow-hidden">
-        
+    <section id="about" className="min-h-screen flex items-center justify-center py-20">
+      <motion.div
+        className="w-[90%] max-w-5xl mx-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-xl flex flex-col md:flex-row items-center overflow-hidden"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }} // s’anime seulement une fois
+      >
         {/* Image / sculpture interactive */}
-        <div
+        <motion.div
           className="relative w-72 h-72 md:w-96 md:h-96 m-6 cursor-pointer flex items-center justify-center"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           {/* Sculpture avec mouvement */}
           <motion.div
@@ -52,8 +58,8 @@ export const About: React.FC = () => {
               className="absolute text-xl md:text-2xl font-bold text-gray-300/80 tracking-wider select-none pointer-events-none"
               animate={{ y: [0, -5, 5, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
-            ><span className="text-[#eddd53] text-8xl">?</span>
-              
+            >
+              <span className="text-[#eddd53] text-8xl">?</span>
             </motion.h2>
 
             <Image
@@ -63,7 +69,7 @@ export const About: React.FC = () => {
             />
           </motion.div>
 
-          {/* Profil qui apparaît au hover */}
+          {/* Profil au hover */}
           <AnimatePresence>
             {hovered && (
               <motion.div
@@ -82,10 +88,16 @@ export const About: React.FC = () => {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
 
         {/* Texte interactif */}
-        <div className="flex-1 flex flex-col text-center md:text-left px-6 py-12 md:py-16 space-y-6">
+        <motion.div
+          className="flex-1 flex flex-col text-center md:text-left px-6 py-12 md:py-16 space-y-6"
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2
             className="text-2xl md:text-3xl font-semibold text-[#57C785]"
             style={{ fontFamily: "var(--font-mono)" }}
@@ -98,9 +110,10 @@ export const About: React.FC = () => {
               <motion.p
                 key={index}
                 className="leading-relaxed"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.5, duration: 0.6 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
               >
                 {sentence.split(" ").map((word, i) => (
                   <motion.span
@@ -115,8 +128,8 @@ export const About: React.FC = () => {
               </motion.p>
             ))}
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

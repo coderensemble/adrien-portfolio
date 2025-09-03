@@ -1,23 +1,31 @@
+"use client";
+
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import TextDecrypt from "../../components/ui/textDecrypt";
 
 export const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
-  const greetings = "Let's work together!";
+  const greetings = "LET'S WORK TOGETHER!";
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (form.current) {
       emailjs
-        .sendForm("service_dl9djrv", "template_aybi97f", form.current, "MD6rY0SPz1H_153O_")
+        .sendForm(
+          "service_dl9djrv",
+          "template_aybi97f",
+          form.current,
+          "MD6rY0SPz1H_153O_"
+        )
         .then(() => {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "You have sent an email!",
+            title: "Message sent successfully 🚀",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -25,71 +33,137 @@ export const Contact: React.FC = () => {
         })
         .catch((error) => {
           console.error(error.text);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong. Please try again later.",
+          });
         });
     }
   };
 
   return (
-    <section id="contact" className="min-h-screen flex items-center">
-      <div className="w-full max-w-[90em] mx-auto flex flex-col md:flex-row md:justify-between md:space-x-12 space-y-6 md:space-y-0 items-center">
+    <section
+      id="contact"
+      className="min-h-screen flex items-center justify-center py-20"
+    >
+      <motion.div
+        className="w-[90%] max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start md:justify-between gap-10"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {/* Texte animé */}
+        <motion.div
+          style={{ fontFamily: "var(--font-mono)" }}
+          className="flex-1 flex items-center justify-center text-center md:text-left"
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <TextDecrypt
+            text={greetings}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#57C785]"
+          />
+        </motion.div>
+
         {/* Formulaire */}
-        <div className="w-[90%] sm:w-[30em] md:w-[40em] bg-white/30 border rounded-lg shadow-lg border-white">
-          <form ref={form} onSubmit={sendEmail} className="space-y-6 p-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-1">
-                Name
+        <motion.div
+          className="flex-1 w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-8"
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <form ref={form} onSubmit={sendEmail} className="space-y-6">
+            {/* Name */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium mb-2 text-gray-200"
+              >
+                Your name
               </label>
               <input
                 id="name"
                 name="name"
                 type="text"
                 required
-                className="w-full px-3 py-2 bg-white/30 text-white rounded focus:outline-none focus:ring-2 focus:ring-white-500"
+                className="w-full px-4 py-3 bg-gray-800/50 text-gray-100 placeholder-gray-400 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#EDDD53] transition"
+                placeholder="John Doe"
               />
-            </div>
+            </motion.div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">
-                Email
+            {/* Email */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium mb-2 text-gray-200"
+              >
+                Your email
               </label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 required
-                className="w-full px-3 py-2 bg-white/30 text-white rounded focus:outline-none focus:ring-2 focus:ring-white-500"
+                className="w-full px-4 py-3 bg-gray-800/50 text-gray-100 placeholder-gray-400 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#EDDD53] transition"
+                placeholder="you@email.com"
               />
-            </div>
+            </motion.div>
 
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-1">
-                Message
+            {/* Message */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium mb-2 text-gray-200"
+              >
+                Your message
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows={5}
                 required
-                className="w-full px-3 py-2 bg-white/30 text-white rounded focus:outline-none focus:ring-2 focus:ring-white-500"
+                className="w-full px-4 py-3 bg-gray-800/50 text-gray-100 placeholder-gray-400 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#EDDD53] transition"
+                placeholder="Tell me more about your project..."
               />
-            </div>
+            </motion.div>
 
-            <button
-              type="submit"
-              className="w-full flex items-center justify-center gap-2 py-2 px-4 hover:border-[#EDDD53]
-            hover:bg-[#EDDD53] hover:text-[#0a0a0a]
-           rounded font-semibold border border-white transition-colors duration-300">
-              <i className="fas fa-terminal"></i> Send message
-            </button>
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <button
+                type="submit"
+                className="w-full py-3 px-6 flex items-center justify-center gap-2 bg-white text-gray-900 font-semibold rounded-lg shadow-lg hover:bg-[#d5c64a] transition"
+              >
+                <i className="fas fa-paper-plane"></i> Send Message
+              </button>
+            </motion.div>
           </form>
-        </div>
-        {/* Texte animé */}
-        <div
-          style={{ fontFamily: "var(--font-mono)" }}
-          className="w-[90%] md:w-[40%] flex items-center justify-center text-center">
-          <TextDecrypt text={greetings} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl" />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
