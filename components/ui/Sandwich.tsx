@@ -1,9 +1,11 @@
-import { useState, useContext, useEffect } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 import { Plus } from "lucide-react";
 import Resume from "../../data/resume.json";
 import { IconType } from "react-icons";
 import { FaTelegramPlane, FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { ThemeContext } from "../../theme/ThemeProvider";
+import { useTheme } from "next-themes";
 
 const iconMap: Record<"Email" | "LinkedIn" | "GitHub", IconType> = {
   Email: FaTelegramPlane,
@@ -12,18 +14,14 @@ const iconMap: Record<"Email" | "LinkedIn" | "GitHub", IconType> = {
 };
 
 export default function ContactsAccess() {
-  const [open, setOpen] = useState(false);
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const { theme } = useContext(ThemeContext);
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null; // rien rendu côté serveur
 
-  // 💥 Empêcher le rendu tant que le client n'est pas monté
-  if (!mounted) return null;
-
-  const isDark = theme === "dark";
+  const isDark = resolvedTheme === "dark";
 
   return (
     <div className="fixed top-[6em] right-[4em] sm:top-[3.5em] sm:right-[2.5em] flex flex-col items-end">
@@ -37,11 +35,9 @@ export default function ContactsAccess() {
       </button>
 
       <div
-        className={`
-         flex flex-col items-end space-y-4 mt-4
-         transition-all duration-300
-         ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
-         md:opacity-100 md:pointer-events-auto
+        className={`flex flex-col items-end space-y-4 mt-4 transition-all duration-300
+          ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+          md:opacity-100 md:pointer-events-auto
         `}>
         {Resume.basics.profiles.map((profile) => {
           const network = profile.network as keyof typeof iconMap;
@@ -56,7 +52,7 @@ export default function ContactsAccess() {
               className={`text-2xl transition-colors flex items-center ${
                 isDark
                   ? "text-white hover:text-[#EDDD53]"
-                  : "text-[#575757] hover:text-[#61DAFB]"
+                  : "text-white hover:text-[#61DAFB]"
               }`}
               title={profile.network}>
               <IconComponent />
