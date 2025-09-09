@@ -4,16 +4,15 @@ import { useEffect } from "react";
 import ContactsAccess from "@/components/ui/Sandwich";
 import { SideNavbar } from "@/components/ui/SideNavBar";
 import { Header } from "@/components/Header";
-import { Home } from "@/app/home/page";
+import Home from "@/app/home/page";
 import ProjectsPage from "@/app/projects/page";
-import { About } from "@/app/about/page";
-import { Contact } from "@/app/contact/page";
+import AboutPage from "@/app/about/page";
+import ContactPage from "@/app/contact/page";
 import Footer from "@/components/Footer";
 import { ThreeScene } from "@/components/background/ThreeScene";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import { Resume } from "@/components/resume/resume";
 import { AnimatedSection } from "@/components/ui/animatedSection";
-import CodeExamples from "@/components/CodeExamples/CodeExamples";
 export default function HomePage() {
   useEffect(() => {
     const progress = document.getElementById("scroll-progress") as HTMLProgressElement;
@@ -51,11 +50,11 @@ export default function HomePage() {
         <section
           id="about"
           className="min-h-screen pt-12 px-6 sm:px-12 lg:px-20 bg-gradient-to-b from-black via-black/80 to-transparent">
-          <About />
+          <AboutPage />
         </section>
 
         <section id="contact" className="min-h-screen pt-12 px-6 sm:px-12 lg:px-20">
-          <Contact />
+          <ContactPage />
         </section>
         <ThemeToggle />
       </div>

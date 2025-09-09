@@ -8,15 +8,13 @@ import sculpture from "../../public/sculpture.png";
 import resume from "../../data/resume.json";
 import TextDecrypt from "../../components/ui/textDecrypt";
 
-export const About: React.FC = () => {
+export default function AboutPage() {
   const greetings = "HELLO. I'M ADRIEN, WELCOME THERE!";
   const aboutme = `I'm ${resume.basics.name}, a creative fullstack developer specializing in Javascript with frameworks like React, Vue, Next.js and Node.js. I usually code in Typescript. My passion for coding drives me to create innovative solutions that solve problems. With a strong background in business and a knack for problem-solving, I bring a unique perspective to every project. 
   I blend clean code with thoughtful UX/UI design to craft applications that are both functional and visually engaging. Tailwind CSS, Bootstrap is my go-to for creating responsive and visually stunning interfaces. I also discover Three.js, framer-motion and React Three Fiber to bring my designs to life.
   Passionate about learning and innovation, I thrive on challenges and love transforming ideas into smooth, interactive digital experiences.`;
 
   const [hovered, setHovered] = useState(false);
-
-  // Découper en phrases
   const sentences = aboutme.split(". ");
 
   return (

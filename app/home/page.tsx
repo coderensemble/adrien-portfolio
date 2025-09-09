@@ -5,7 +5,7 @@ import resume from "../../data/resume.json";
 import { useTheme } from "next-themes"; 
 import { useState, useEffect } from "react";
 
-export const Home: React.FC = () => {
+export default function Home() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 

@@ -6,7 +6,7 @@ import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import TextDecrypt from "../../components/ui/textDecrypt";
 
-export const Contact: React.FC = () => {
+export default function ContactPage() {
   const form = useRef<HTMLFormElement>(null);
   const greetings = "LET'S WORK TOGETHER!";
 
