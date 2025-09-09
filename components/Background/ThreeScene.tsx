@@ -1,8 +1,8 @@
 // components/InteractiveSphere.tsx
 import { Canvas } from "@react-three/fiber";
-import { ExplodingStar } from "./ExplodingStar";
+import ExplodingStar from "./ExplodingStar";
 
-export const ThreeScene = () => {
+export default function ThreeScene() {
   return (
     <Canvas
       style={{

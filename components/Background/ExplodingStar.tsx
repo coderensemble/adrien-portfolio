@@ -3,7 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { useRef, useEffect, useState } from "react";
 import { Mesh } from "three";
 
-export const ExplodingStar = () => {
+export default function ExplodingStar() {
   const meshRef = useRef<Mesh>(null);
   const [xPosition, setXPosition] = useState(8); // position X par défaut
 

@@ -9,9 +9,8 @@ import ProjectsPage from "@/app/projects/page";
 import AboutPage from "@/app/about/page";
 import ContactPage from "@/app/contact/page";
 import Footer from "@/components/Footer";
-import { ThreeScene } from "@/components/background/ThreeScene";
+import ThreeScene from "@/components/background/ThreeScene";
 import ThemeToggle from "@/components/theme/ThemeToggle";
-import { Resume } from "@/components/resume/resume";
 import { AnimatedSection } from "@/components/ui/animatedSection";
 export default function HomePage() {
   useEffect(() => {
@@ -60,7 +59,6 @@ export default function HomePage() {
       </div>
       <SideNavbar />
       <ContactsAccess />
-      <Resume />
       <Footer />
     </>
   );
