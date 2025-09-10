@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
+
 import ContactsAccess from "@/components/ui/Sandwich";
 import { SideNavbar } from "@/components/ui/SideNavBar";
 import { Header } from "@/components/Header";
@@ -9,9 +11,15 @@ import ProjectsPage from "@/app/projects/page";
 import AboutPage from "@/app/about/page";
 import ContactPage from "@/app/contact/page";
 import Footer from "@/components/Footer";
-import ThreeScene from "@/components/background/ThreeScene";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import { AnimatedSection } from "@/components/ui/animatedSection";
+
+// Import de ton composant ThreeScene uniquement côté client
+const ThreeScene = dynamic(() => import("@/components/background/ThreeScene"), {
+  ssr: false,
+});
+
+
 export default function HomePage() {
   useEffect(() => {
     const progress = document.getElementById("scroll-progress") as HTMLProgressElement;

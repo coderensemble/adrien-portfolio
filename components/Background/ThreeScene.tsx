@@ -1,3 +1,4 @@
+"use client";
 // components/InteractiveSphere.tsx
 import { Canvas } from "@react-three/fiber";
 import ExplodingStar from "./ExplodingStar";
