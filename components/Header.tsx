@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import resume from "../data/resume.json";
-import BackgroundMusic from "./background/BackgroundMusic";
+import BackgroundMusic from "./Background/BackgroundMusic";
 import { useTheme } from "next-themes";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -66,15 +66,11 @@ export const Header = () => {
       role="banner"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? `bg-black/10 backdrop-blur-sm dark:bg-gray-900/80` : "bg-transparent"
-      }`}
-    >
+      }`}>
       <div className="flex flex-col sm:flex-row justify-between items-center px-[2.5em] py-3 text-white text-sm gap-1 sm:gap-0">
         {/* Title */}
         <div className="flex flex-col items-center sm:items-start">
-          <Link
-            href="/"
-            className={`font-semibold ${isDark ? "hover:text-[#EDDD53]" : "hover:text-[#61DAFB]"}`}
-          >
+          <Link href="/" className={`font-semibold ${isDark ? "hover:text-[#EDDD53]" : "hover:text-[#61DAFB]"}`}>
             {resume.basics.name}
           </Link>
           <span className="opacity-70">{resume.basics.label}</span>
@@ -87,8 +83,7 @@ export const Header = () => {
           <div className="relative group">
             <Link
               href="/admin"
-className={`line-through hover:no-underline ${isDark ? "hover:text-[#EDDD53]" : "hover:text-[#61DAFB]"}`}
-            >
+              className={`line-through hover:no-underline ${isDark ? "hover:text-[#EDDD53]" : "hover:text-[#61DAFB]"}`}>
               Admin
             </Link>
             <div className="fixed left-1/2 w-80 rounded-2xl text-white text-sm hidden group-hover:block text-center z-[70] p-3 top-2">

@@ -15,10 +15,9 @@ import ThemeToggle from "@/components/theme/ThemeToggle";
 import { AnimatedSection } from "@/components/ui/animatedSection";
 
 // Import de ton composant ThreeScene uniquement côté client
-const ThreeScene = dynamic(() => import("@/components/background/ThreeScene"), {
+const ThreeScene = dynamic(() => import("@/components/Background/ThreeScene"), {
   ssr: false,
 });
-
 
 export default function HomePage() {
   useEffect(() => {
