@@ -65,12 +65,12 @@ export const Header = () => {
       id="header"
       role="banner"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? `bg-black/10 backdrop-blur-sm dark:bg-gray-900/80` : "bg-transparent"
+        isScrolled ? `bg-black/20 backdrop-blur-sm` : "bg-transparent"
       }`}>
       <div className="flex flex-col sm:flex-row justify-between items-center px-[2.5em] py-3 text-white text-sm gap-1 sm:gap-0">
         {/* Title */}
         <div className="flex flex-col items-center sm:items-start">
-          <Link href="/" className={`font-semibold ${isDark ? "hover:text-[#57C785]" : "hover:text-[#FF6B2D]"}`}>
+          <Link href="/" className={`font-semibold ${isDark ? "hover:text-[#61DAFB]" : "hover:text-[#f6c453]"}`}>
             {resume.basics.name}
           </Link>
           <span className="opacity-70">{resume.basics.label}</span>

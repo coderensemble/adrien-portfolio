@@ -23,7 +23,7 @@ export default function ThemeToggle() {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className={`w-12 h-12 flex items-center justify-center border-white/50 rounded-full transition-colors duration-300
-          ${isLight ? "bg-white text-[#171717] hover:bg-[#61DAFB]" : "bg-[#171717] text-white hover:bg-[#EDDD53]"}`}
+          ${isLight ? "bg-white text-[#171717] hover:bg-[#61DAFB]" : "bg-white text-[#171717] hover:bg-[#f6c453]"}`}
       >
         <Icon size={20} className="transition-all duration-300 transform group-hover:rotate-180 drop-shadow-md" />
       </button>

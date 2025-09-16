@@ -54,7 +54,7 @@ export default function ContactPage() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}
       >
-        {/* Texte animé */}
+        {/* Text */}
         <motion.div
           style={{ fontFamily: "var(--font-mono)" }}
           className="flex-1 flex items-center justify-center text-center md:text-left"
@@ -65,11 +65,11 @@ export default function ContactPage() {
         >
           <TextDecrypt
             text={greetings}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#57C785]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent"
           />
         </motion.div>
 
-        {/* Formulaire */}
+        {/* Form */}
         <motion.div
           className="flex-1 w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-8"
           initial={{ opacity: 0, x: 60 }}
@@ -156,7 +156,7 @@ export default function ContactPage() {
             >
               <button
                 type="submit"
-                className="w-full py-3 px-6 flex items-center justify-center gap-2 bg-white text-gray-900 font-semibold rounded-lg shadow-lg hover:bg-[#d5c64a] transition"
+                className="w-full py-3 px-6 flex items-center justify-center gap-2 bg-white text-gray-900 font-semibold rounded-lg shadow-lg button-empty transition"
               >
                 <i className="fas fa-paper-plane"></i> Send Message
               </button>

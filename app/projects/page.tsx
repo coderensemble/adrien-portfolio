@@ -30,7 +30,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="flex flex-col">
-        <span className=" px-4 sm:px-6 lg:px-12 text-2xl sm:text-3xl lg:text-4xl font-bold text-[#57C785] mb-8 pt-2 animate-fade-in" >
+        <span className=" px-4 sm:px-6 lg:px-12 text-2xl sm:text-3xl lg:text-4xl font-bold text-accent mb-8 pt-2 animate-fade-in" >
       SOME PROJECTS...
       </span>
       <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

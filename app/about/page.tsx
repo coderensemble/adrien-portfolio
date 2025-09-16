@@ -10,12 +10,15 @@ import TextDecrypt from "../../components/ui/textDecrypt";
 
 export default function AboutPage() {
   const greetings = "HELLO. I'M ADRIEN, WELCOME THERE!";
-  const aboutme = `I'm ${resume.basics.name}, a creative fullstack developer specializing in Javascript with frameworks like React, Vue, Next.js and Node.js. I usually code in Typescript. My passion for coding drives me to create innovative solutions that solve problems. With a strong background in business and a knack for problem-solving, I bring a unique perspective to every project. 
-  I blend clean code with thoughtful UX/UI design to craft applications that are both functional and visually engaging. Tailwind CSS, Bootstrap is my go-to for creating responsive and visually stunning interfaces. I also discover Three.js, framer-motion and React Three Fiber to bring my designs to life.
-  Passionate about learning and innovation, I thrive on challenges and love transforming ideas into smooth, interactive digital experiences.`;
+  const aboutMeParagraphs = [
+  `I'm ${resume.basics.name}, a creative fullstack developer specializing in Javascript with frameworks like React, Vue, Next.js and Node.js. I usually code in Typescript. My passion for coding drives me to create innovative solutions that solve problems.`,
+  `With a strong background in business and a knack for problem-solving, I bring a unique perspective to every project. I blend clean code with thoughtful UX/UI design to craft applications that are both functional and visually engaging.`,
+  `Tailwind CSS and Bootstrap are my go-to for creating responsive interfaces. I also explore Three.js, Framer Motion, and React Three Fiber to bring my designs to life.`,
+  `Passionate about learning and innovation, I thrive on challenges and love transforming ideas into smooth, interactive digital experiences.`
+];
+
 
   const [hovered, setHovered] = useState(false);
-  const sentences = aboutme.split(". ");
 
   return (
     <section id="about" className="min-h-screen flex items-center justify-center py-20">
@@ -57,7 +60,7 @@ export default function AboutPage() {
               animate={{ y: [0, -5, 5, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              <span className="text-[#eddd53] text-8xl">?</span>
+              <span className="text-accent text-8xl">?</span>
             </motion.h2>
 
             <Image
@@ -97,35 +100,35 @@ export default function AboutPage() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <h2
-            className="text-2xl md:text-3xl font-semibold text-[#57C785]"
+            className="text-2xl md:text-3xl font-semibold text-accent"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             <TextDecrypt text={greetings} />
           </h2>
 
-          <div className="space-y-3 text-gray-200 text-sm md:text-base">
-            {sentences.map((sentence, index) => (
-              <motion.p
-                key={index}
-                className="leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2, duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                {sentence.split(" ").map((word, i) => (
-                  <motion.span
-                    key={i}
-                    whileHover={{ scale: 1.1, color: "#eddd53" }}
-                    transition={{ type: "spring", stiffness: 200 }}
-                    className="inline-block cursor-pointer px-0.5"
-                  >
-                    {word}{" "}
-                  </motion.span>
-                ))}
-              </motion.p>
-            ))}
-          </div>
+          <div className="space-y-4 text-gray-200 text-sm md:text-base">
+  {aboutMeParagraphs.map((paragraph, index) => (
+    <motion.p
+      key={index}
+      className="leading-relaxed"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.2, duration: 0.5 }}
+      viewport={{ once: true }}
+    >
+      {paragraph.split(" ").map((word, i) => (
+      <motion.span
+        key={i}
+        whileHover={{ scale: 1.1, color: "#f6c453" }}
+        transition={{ type: "spring", stiffness: 200 }}
+        className="inline-block cursor-pointer px-0.5"
+      >
+        {word}{" "}
+      </motion.span>  
+    ))}
+    </motion.p>
+  ))}
+</div>
         </motion.div>
       </motion.div>
     </section>
