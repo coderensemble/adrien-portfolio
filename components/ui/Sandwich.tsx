@@ -28,7 +28,7 @@ export default function ContactsAccess() {
       <button
         onClick={() => setOpen(!open)}
         className={`w-10 h-10 rounded-full shadow-lg md:hidden flex items-center justify-center transition-transform duration-300 focus:outline-none
-          ${isDark ? "bg-[#61DAFB] text-black" : "bg-white/18 text-white hover:bg-[#EDDD53]"}
+          ${isDark ? "bg-[#61DAFB] text-black" : "bg-white/18 text-white hover:bg-[#f6c453]"}
         `}
         aria-label="Afficher contacts">
         <Plus className={`w-6 h-6 transition-transform ${open ? "rotate-45" : "rotate-0"}`} />
@@ -51,8 +51,8 @@ export default function ContactsAccess() {
               rel="noopener noreferrer"
               className={`text-2xl transition-colors flex items-center ${
                 isDark
-                  ? "text-white hover:text-[#EDDD53]"
-                  : "text-white hover:text-[#61DAFB]"
+                  ? "text-white hover:text-[#61DAFB]"
+                  : "text-white hover:text-[#f6c453]"
               }`}
               title={profile.network}>
               <IconComponent />

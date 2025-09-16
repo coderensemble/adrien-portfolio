@@ -2,12 +2,12 @@
 @import "tailwindcss";
 
 ::-moz-selection {
-  background: #eddd53;
+  background: var(--color-accent);
   color: #fafafa;
   text-shadow: none;
 }
 ::selection {
-  background: #eddd53;
+  background: var(--color-accent);
   color: #fafafa;
   text-shadow: none;
 }
@@ -17,17 +17,16 @@
 }
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #0a0a0a;
   --font-sans: "Lato", Helvetica, sans-serif;
   --font-title: "Playfair Display", serif;
   --font-mono: monospace;
-  --color-bg: #ffffff;
-  --color-text: #171717;
-  --color-accent: #61dafb;
 
-  --color-card-bg: #f7f7f7;
-  --color-card-border: #e5e5e5;
+  --color-bg: #ffffff;
+  --color-text: #ffffff;
+  --color-accent: #FF6B2D; 
+
+  --color-secondary: #2e5339; 
+  --color-highlight: #f6c453; 
 }
 
 /*body {
@@ -79,14 +78,19 @@ html.dark body::before {
   filter: brightness(0.6) blur(3px);  
 }
 
+/* --- Mode sombre --- */
 html.dark {
-  --color-bg: #0a0a0a;
-  --color-text: #fafafa;
-  --color-accent: #eddd53;
+  --color-bg: #0B1B2B;
+  --color-text: #F5F5F2;
+  --color-accent: #57C785; 
 
-  --color-card-bg: #1a1a1a;
-  --color-card-border: #333333;
+  --color-card-bg: #57C785;
+  --color-card-border: #57C785;
+
+  --color-secondary: #b0b0aa; 
+  --color-highlight: #61DAFB;
 }
+
 
 html.dark body::after {
   background-image: url("/bivouac.png");
@@ -151,7 +155,38 @@ html.dark body::after {
   animation: scrollTextLoop 4s linear infinite;
 }
 
-/* Ici, la vraie règle pour le mode dark quand la classe dark est présente */
+.text-accent {
+  color: var(--color-accent);
+}
+
+.button-accent {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.button-empty {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.button-empty:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.navbar {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.navbar:hover {
+  color: var(--color-highlight);
+}
+
+.navbar.active {
+  color: var(--color-accent);
+}
 
 
 p {

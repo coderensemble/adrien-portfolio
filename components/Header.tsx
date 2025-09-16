@@ -70,7 +70,7 @@ export const Header = () => {
       <div className="flex flex-col sm:flex-row justify-between items-center px-[2.5em] py-3 text-white text-sm gap-1 sm:gap-0">
         {/* Title */}
         <div className="flex flex-col items-center sm:items-start">
-          <Link href="/" className={`font-semibold ${isDark ? "hover:text-[#EDDD53]" : "hover:text-[#61DAFB]"}`}>
+          <Link href="/" className={`font-semibold ${isDark ? "hover:text-[#57C785]" : "hover:text-[#FF6B2D]"}`}>
             {resume.basics.name}
           </Link>
           <span className="opacity-70">{resume.basics.label}</span>
@@ -83,7 +83,7 @@ export const Header = () => {
           <div className="relative group">
             <Link
               href="/admin"
-              className={`line-through hover:no-underline ${isDark ? "hover:text-[#EDDD53]" : "hover:text-[#61DAFB]"}`}>
+              className={`line-through hover:no-underline ${isDark ? "hover:text-[#61DAFB]" : "hover:text-[#f6c453]"}`}>
               Admin
             </Link>
             <div className="fixed left-1/2 w-80 rounded-2xl text-white text-sm hidden group-hover:block text-center z-[70] p-3 top-2">
@@ -100,7 +100,7 @@ export const Header = () => {
         <div className="h-[2px] bg-transparent">
           <div
             id="scroll-progress"
-            className={`h-full w-0 transition-all duration-200 ${isDark ? "bg-[#EDDD53]" : "bg-[#61DAFB]"}`}
+            className={`h-full w-0 transition-all duration-200 ${isDark ? "bg-[#57C785]" : "bg-[#FF6B2D]"}`}
           />
         </div>
       </div>

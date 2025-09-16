@@ -59,22 +59,19 @@ export const SideNavbar: React.FC = () => {
     >
       {navItems.map(({ id, label }) => (
         <Link
-          key={id}
-          href={id}
-          passHref
-          onClick={() => setActiveNav(id)}
-          className={`
-      
-            no-underline
-            ${activeNav === id ? "text-[#57C785]" : "text-white"}
-            hover:text-[#EDDD53]
-            text-lg
-            cursor-pointer
-          `}
-        >
-          <span>{label}</span>
-        </Link>
-        
+  key={id}
+  href={id}
+  passHref
+  onClick={() => setActiveNav(id)}
+  className={`
+    no-underline navbar
+    ${activeNav === id ? "active" : ""}
+    text-lg cursor-pointer
+  `}
+>
+  <span>{label}</span>
+</Link>
+
       ))}
     </nav>
     </>
