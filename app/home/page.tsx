@@ -2,43 +2,40 @@
 
 import TextDecrypt from "../../components/ui/textDecrypt";
 import resume from "../../data/resume.json";
-import { useTheme } from "next-themes"; 
-import { useState, useEffect } from "react";
+import tooltip from "@/data/tooltip.json";
+import TooltipDemo from "../../components/ui/TooltipDemo";
 
 export default function Home() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === "dark";
-
   return (
     <div className="min-h-screen flex flex-col md:flex-row justify-between items-stretch mt-20 px-4 sm:px-6 lg:px-12">
       {/* Colonne gauche */}
       <div className="flex-[2] flex flex-col justify-start items-start">
         <h1 className="flex flex-col text-left leading-none gap-2 sm:gap-3">
           {/* Ligne 1 */}
-          <span className={`text-lg sm:text-2xl lg:text-3xl font-medium ${isDark ? "text-white" : "text-green-500"}`}>
-  Athlete&apos;s
-</span>
+          <TooltipDemo text={tooltip.athlete}>
+            <span className="text-lg sm:text-2xl lg:text-3xl font-medium text-[#E87722] dark:text-[#57C785]">
+              Athlete&apos;s
+            </span>
+          </TooltipDemo>
+
           {/* Ligne 2 : MINDSET + & */}
           <span className="flex items-center flex-wrap">
-            <span className={`text-4xl sm:text-6xl lg:text-8xl font-bold ${isDark ? "text-white" : "text-black"}`}>
+            <span className="text-4xl sm:text-6xl lg:text-8xl font-bold text-black dark:text-white">
               <TextDecrypt text="MINDSET" />
             </span>
-            <span className="text-3xl sm:text-5xl lg:text-7xl font-medium text-[#57C785] relative lg:top-3 -left-1 sm:-left-2 lg:-left-3 rotate-0 sm:rotate-[15deg]">
+            <span className="text-3xl sm:text-5xl lg:text-7xl font-medium text-[#E87722] dark:text-[#57C785] relative lg:top-3 -left-1 sm:-left-2 lg:-left-3 rotate-0 sm:rotate-[15deg]">
               &amp;
             </span>
           </span>
 
           {/* Ligne 3 : DEVELOPER + 's skills' */}
           <span className="flex items-center flex-wrap">
-            <span className={`text-4xl sm:text-6xl lg:text-8xl font-bold ${isDark ? "text-white" : "text-black"}`}>
-              <TextDecrypt text="DEVELOPER" />
-            </span>
-            <span className="text-base sm:text-xl lg:text-2xl font-medium text-[#57C785] relative lg:top-3 -left-1 sm:-left-2 lg:-left-3">
+            <TooltipDemo text={tooltip.mindset}>
+              <span className="text-4xl sm:text-6xl lg:text-8xl font-bold text-black dark:text-white">
+                <TextDecrypt text="DEVELOPER" />
+              </span>
+            </TooltipDemo>
+            <span className="text-base sm:text-xl lg:text-2xl font-medium text-[#E87722] dark:text-[#57C785] relative lg:top-3 -left-1 sm:-left-2 lg:-left-3">
               &apos;s skills
             </span>
           </span>
@@ -53,7 +50,9 @@ export default function Home() {
         </div>
 
         {/* Sous-titre */}
-        <div className="text-lg sm:text-2xl lg:text-3xl mb-6 text-white">{resume.basics.job2}</div>
+        <div className="text-lg sm:text-2xl lg:text-3xl mb-6 text-black dark:text-white">
+          {resume.basics.job2}
+        </div>
 
         {/* Boutons */}
         <div className="flex flex-wrap gap-4">
@@ -77,4 +76,4 @@ export default function Home() {
       </div>
     </div>
   );
-};
+}

@@ -11,7 +11,7 @@ export default function Background() {
   // Fond neutre pour SSR (aucune image)
   if (!mounted) {
     return (
-      <div className="fixed top-0 left-0 w-screen h-screen z-[-10] bg-black" />
+      <div className="fixed top-0 left-0 w-screen h-screen z-[-10] " />
     );
   }
 

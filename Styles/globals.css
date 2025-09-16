@@ -22,15 +22,19 @@
   --font-sans: "Lato", Helvetica, sans-serif;
   --font-title: "Playfair Display", serif;
   --font-mono: monospace;
+  --color-bg: #ffffff;
+  --color-text: #171717;
+  --color-accent: #61dafb;
+
+  --color-card-bg: #f7f7f7;
+  --color-card-border: #e5e5e5;
 }
 
-body {
+/*body {
   position: relative;
   margin: 0;
   height: 100%;
-  color: var(--background);
-  font-family: var(--font-sans);
-}
+}*/
 
 body::before {
   content: "";
@@ -39,7 +43,7 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("/bivouac-light.png"); /* ton image */
+  background-image: url("/bivouac-light.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -47,7 +51,7 @@ body::before {
   opacity: 0;
   animation: fadeInBg 3s ease-in-out forwards;
   z-index: -10;
-  filter: brightness(0.9) blur(2px); /* ajoute un flou et atténue */
+  filter: brightness(0.9) blur(2px); 
   pointer-events: none;
 }
 
@@ -58,7 +62,7 @@ body::after {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("/bivouac-light.png"); /* ton image */
+  background-image: url("/bivouac-light.png"); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -69,10 +73,19 @@ body::after {
   animation: fadeInBg 3s ease-in-out forwards, bgMove 20s ease-in-out infinite;
 }
 
-/* Mode sombre */
+Mode sombre 
 html.dark body::before {
-  background-image: url("/bivouac.png"); /* version dark */
-  filter: brightness(0.6) blur(3px); /* un peu plus sombre et plus flouté */
+  background-image: url("/bivouac.png");  
+  filter: brightness(0.6) blur(3px);  
+}
+
+html.dark {
+  --color-bg: #0a0a0a;
+  --color-text: #fafafa;
+  --color-accent: #eddd53;
+
+  --color-card-bg: #1a1a1a;
+  --color-card-border: #333333;
 }
 
 html.dark body::after {
@@ -139,15 +152,7 @@ html.dark body::after {
 }
 
 /* Ici, la vraie règle pour le mode dark quand la classe dark est présente */
-html.dark {
-  background-color: #0a0a0a;
-}
 
-html {
-  background-color: #fafafa;
-  scroll-behavior: smooth;
-  transition: background-color 0.5s ease;
-}
 
 p {
   margin-block-start: 0.5em;
