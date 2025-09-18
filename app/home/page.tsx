@@ -12,9 +12,7 @@ export default function Home() {
       <div className="flex-[2] flex flex-col justify-start items-start">
         <h1 className="flex flex-col text-left leading-none gap-2 sm:gap-3">
           {/* Ligne 1 */}
-          <TooltipDemo text={tooltip.athlete}>
             <span className="text-lg sm:text-2xl lg:text-3xl font-medium text-accent">Athlete&apos;s</span>
-          </TooltipDemo>
 
           {/* Ligne 2 : MINDSET + & */}
           <span className="flex items-center flex-wrap">
