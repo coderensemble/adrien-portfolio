@@ -10,9 +10,7 @@ export default function DraggableSoundButton() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const { theme } = useTheme();
 
-  const audioSrc = theme === "dark"
-    ? "/FEU_DE_CHEMINEE.mp3"
-    : "/NATURE.mp3";
+  const audioSrc = theme === "dark" ? "/FEU_DE_CHEMINEE.mp3" : "/NATURE.mp3";
 
   // --- toggle sound ---
   const toggleSound = () => {
@@ -36,7 +34,6 @@ export default function DraggableSoundButton() {
     };
   };
 
-  // --- Drag state ---
   const isDragging = useRef(false);
 
   const handleMouseMove = (e: MouseEvent) => {
@@ -44,24 +41,20 @@ export default function DraggableSoundButton() {
     setPosition(clampPosition(e.clientX - 25, e.clientY - 25));
   };
 
-  const handleMouseUp = (e: MouseEvent) => {
+  const handleMouseUp = () => {
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
-    // si pas de drag, alors clic
-    if (!isDragging.current) {
-      toggleSound();
-    }
+    if (!isDragging.current) toggleSound();
     isDragging.current = false;
   };
 
-  const handleMouseDown = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const handleMouseDown = (_e: React.MouseEvent<HTMLButtonElement>) => {
+    _e.preventDefault();
     isDragging.current = false;
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
   };
 
-  // --- Touch ---
   const handleTouchMove = (e: TouchEvent) => {
     isDragging.current = true;
     setPosition(clampPosition(e.touches[0].clientX - 25, e.touches[0].clientY - 25));
@@ -70,14 +63,12 @@ export default function DraggableSoundButton() {
   const handleTouchEnd = () => {
     document.removeEventListener("touchmove", handleTouchMove);
     document.removeEventListener("touchend", handleTouchEnd);
-    if (!isDragging.current) {
-      toggleSound();
-    }
+    if (!isDragging.current) toggleSound();
     isDragging.current = false;
   };
 
-  const handleTouchStart = (e: React.TouchEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const handleTouchStart = (_e: React.TouchEvent<HTMLButtonElement>) => {
+    _e.preventDefault();
     isDragging.current = false;
     document.addEventListener("touchmove", handleTouchMove, { passive: false });
     document.addEventListener("touchend", handleTouchEnd);
@@ -98,7 +89,7 @@ export default function DraggableSoundButton() {
         audioRef.current.play().catch(() => {});
       }
     }
-  }, [theme]);
+  }, [audioSrc, isMuted]); // ✅ inclure toutes les dépendances utilisées
 
   return (
     <>
@@ -120,10 +111,7 @@ export default function DraggableSoundButton() {
             <defs>
               <path
                 id="circlePath"
-                d="M 50, 50
-         m -35, 0
-         a 35,35 0 1,1 70,0
-         a 35,35 0 1,1 -70,0"
+                d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
               />
             </defs>
             <text fill="white" fontSize="25" fontWeight="bold">
