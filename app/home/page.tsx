@@ -2,8 +2,7 @@
 
 import TextDecrypt from "../../components/ui/textDecrypt";
 import resume from "../../data/resume.json";
-import tooltip from "@/data/tooltip.json";
-import TooltipDemo from "../../components/ui/TooltipDemo";
+
 
 export default function Home() {
   return (
@@ -26,11 +25,9 @@ export default function Home() {
 
           {/* Ligne 3 : DEVELOPER + 's skills' */}
           <span className="flex items-center flex-wrap">
-            <TooltipDemo text={tooltip.mindset}>
               <span className="text-4xl sm:text-6xl lg:text-8xl font-bold text-black dark:text-white">
                 <TextDecrypt text="DEVELOPER" />
               </span>
-            </TooltipDemo>
             <span className="text-base sm:text-xl lg:text-2xl font-medium text-accent relative lg:top-3 -left-1 sm:-left-2 lg:-left-3">
               &apos;s skills
             </span>
