@@ -11,7 +11,8 @@ Il a été construit avec une stack moderne et optimisée pour la performance et
 🛠️ **Technologies principales :**
 - [Next.js](https://nextjs.org/) – Framework React rapide et moderne  
 - [TypeScript](https://www.typescriptlang.org/) – Typage fort pour plus de fiabilité  
-- [Tailwind CSS](https://tailwindcss.com/) – Design responsive et productif  
+- [Tailwind CSS](https://tailwindcss.com/) – Design responsive et productif 
+- [Supabase](https://supabase.com/) – The Postgres development platform  
 
 ---
 

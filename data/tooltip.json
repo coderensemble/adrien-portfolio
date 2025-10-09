@@ -1,7 +1,8 @@
 {
-  "athlete": "",
-  "mindset": "Animation avec TextDecrypt : micro-interaction qui démontre ma créativité en frontend.",
-  "developer": "Autre usage de TextDecrypt pour montrer mes compétences en design d’interfaces dynamiques.",
-  "projectsButton": "Bouton avec un effet de texte scrollé en CSS pour allier esthétique et performance.",
-  "contactButton": "Bouton stylisé avec hover states pour mettre en avant l’UX et l’accessibilité."
+  "mindset": "Composant custom `TextDecrypt` : j’ai conçu une animation légère qui fait apparaître les lettres une à une. Objectif : dynamiser la page tout en gardant un composant réutilisable et performant.",
+  "developer": "Même logique d’animation avec `TextDecrypt`, mais pensée pour rester responsive avec des tailles adaptatives (sm, lg).",
+  "projectsButton": "Bouton animé uniquement en CSS pour un effet de texte défilant. Pas de JavaScript superflu → performance et fluidité.",
+  "contactButton": "Bouton pensé accessibilité : hover et focus conformes aux contrastes WCAG AA, utilisable aussi au clavier.",
+  "layout": "Mise en page responsive avec Flexbox + breakpoints Tailwind. Deux colonnes claires sur desktop, stack simplifié sur mobile.",
+  "resumeData": "Les infos (job1, job2) sont externalisées dans `resume.json`. Ça sépare le contenu de la présentation et rend les données réutilisables ailleurs."
 }
