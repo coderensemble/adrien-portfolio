@@ -1,8 +1,8 @@
 {
-  "mindset": "Composant custom `TextDecrypt` : j’ai conçu une animation légère qui fait apparaître les lettres une à une. Objectif : dynamiser la page tout en gardant un composant réutilisable et performant.",
-  "developer": "Même logique d’animation avec `TextDecrypt`, mais pensée pour rester responsive avec des tailles adaptatives (sm, lg).",
-  "projectsButton": "Bouton animé uniquement en CSS pour un effet de texte défilant. Pas de JavaScript superflu → performance et fluidité.",
-  "contactButton": "Bouton pensé accessibilité : hover et focus conformes aux contrastes WCAG AA, utilisable aussi au clavier.",
-  "layout": "Mise en page responsive avec Flexbox + breakpoints Tailwind. Deux colonnes claires sur desktop, stack simplifié sur mobile.",
-  "resumeData": "Les infos (job1, job2) sont externalisées dans `resume.json`. Ça sépare le contenu de la présentation et rend les données réutilisables ailleurs."
+ "mindset": "Custom `TextDecrypt` component: I designed a lightweight animation that reveals letters one by one. Goal: bring some dynamism to the page while keeping the component reusable and performant.",
+  "developer": "Same animation logic with `TextDecrypt`, but designed to remain fully responsive with adaptive text sizes (sm, lg).",
+  "projectsButton": "CSS-only animated button with a scrolling text effect. No unnecessary JavaScript → smooth and performant.",
+  "contactButton": "Accessibility-focused button: hover and focus states meet WCAG AA contrast standards and are fully keyboard-accessible.",
+  "layout": "Responsive layout built with Flexbox and Tailwind breakpoints. Two clear columns on desktop, simplified stacked layout on mobile.",
+  "resumeData": "All data related to my resume is externalized in `resume.json`. This separates content from presentation and makes it reusable elsewhere."
 }
