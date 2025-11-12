@@ -188,6 +188,10 @@ html.dark body::after {
   color: var(--color-accent);
 }
 
+.page-bg {
+  color: var(--color-bg)
+}
+
 
 p {
   margin-block-start: 0.5em;

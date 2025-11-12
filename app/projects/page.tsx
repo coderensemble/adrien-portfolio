@@ -25,8 +25,8 @@ export default function ProjectsPage() {
     fetchProjects();
   }, []); // 👈 dépendances vides, donc normalement pas de boucle infinie
 
-  if (loading) return <p>Loading projects...</p>;
-  if (!projects.length) return <p>No projects found.</p>;
+  if (loading) return <p className="px-6 text-lg sm:text-2xl lg:text-3xl ">Loading projects...</p>;
+  if (!projects.length) return <p className="px-6 text-lg sm:text-2xl lg:text-3xl ">No projects found.</p>;
 
   return (
     <div className="flex flex-col">
