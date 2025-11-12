@@ -25,7 +25,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 </div>
 
       {/* Overlay au hover */}
-      <div className="absolute inset-0 bg-black/80 text-white px-6 py-5 flex flex-col justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+      <div className="absolute inset-0 bg-black/80 text-white px-6 py-4 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         <h1 className="text-xl md:text-4xl font-bold text-center">{project.title}</h1>
         <h3 className="text-lg md:text-2xl font-semibold text-[#57C785]">{project.role}</h3>
         <p className="text-md md:text-md text-gray-200 text-center line-clamp-4">
