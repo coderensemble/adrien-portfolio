@@ -3,10 +3,13 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
 import { Project } from "@/models/projects";
+import { useTheme } from "next-themes";
+
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -34,15 +37,22 @@ export default function ProjectsPage() {
       SOME PROJECTS...
       </span>
       <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
+        {projects.map((project) => {
+          const image =
+          theme === "dark"
+            ? project.image?.dark || "/projectsoon.png"
+            : project.image?.light || "/projectsoon.png";
+
+        return (
           <ProjectCard
-            key={project._id.toString()}
+            key={project._id}
             project={{
               ...project,
-              image: project.image || "/project-portfolio.png",
+              imageUrl: image, // 👈 on injecte l’image du thème actif
             }}
           />
-        ))}
+        );
+      })}
       </section>
     </div>
   );

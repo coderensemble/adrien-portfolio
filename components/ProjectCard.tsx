@@ -5,10 +5,7 @@ import { Project } from "../models/projects";
 import { Github } from "lucide-react";
 
 export default function ProjectCard({ project }: { project: Project }) {
-  const imageSrc =
-    project.image && project.image.trim() !== ""
-      ? project.image
-      : "/project-portfolio.png";
+  const imageSrc = project.imageUrl || "/projectsoon.png";
 
   return (
     <div className="group relative rounded-2xl shadow-md bg-white hover:shadow-lg transition transform hover:scale-[0.98] overflow-hidden">

@@ -1,24 +1,29 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 
-// Interface MongoDB
 export interface IProjectDocument extends Document {
   title: string;
   role: string;
   description: string;
   technologies: string[];
-  image?: string;
+  image?: {
+    light?: string;
+    dark?: string;
+  };
   link?: string;
   code?: string;
 }
 
-// Interface TypeScript
 export interface Project {
   _id: string;
   title: string;
   role: string;
   description: string;
   technologies: string[];
-  image?: string;
+  image?: {
+    light?: string;
+    dark?: string;
+  };
+  imageUrl?: string; // 👈 ajout
   link?: string;
   code?: string;
 }
@@ -28,7 +33,10 @@ const ProjectSchema: Schema<IProjectDocument> = new Schema({
   role: { type: String, required: true },
   description: { type: String, required: true },
   technologies: { type: [String], required: true },
-  image: { type: String },
+  image: {
+    light: { type: String },
+    dark: { type: String },
+  },
   link: { type: String },
   code: { type: String },
 });
