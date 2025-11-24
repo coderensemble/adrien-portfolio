@@ -35,23 +35,28 @@ export const Header = () => {
 
   useEffect(() => {
     async function fetchCount() {
-      const { data, error } = await supabase.from("visitor_count").select("count").eq("id", 1).single();
-      if (!error && data) setCountClients(data.count);
+      const res = await fetch("/api/visitors");
+      const data = await res.json();
+      if (data.count !== undefined) setCountClients(data.count);
     }
     fetchCount();
   }, []);
 
   useEffect(() => {
     if (countClients === null) return;
+
     const localStorageKey = "portfolio_visitor_counted";
+
     if (!localStorage.getItem(localStorageKey)) {
       localStorage.setItem(localStorageKey, "true");
-      const incrementCount = async () => {
-        const newCount = countClients + 1;
-        setCountClients(newCount);
-        await supabase.from("visitor_count").update({ count: newCount }).eq("id", 1);
+
+      const increment = async () => {
+        const res = await fetch("/api/visitors", { method: "POST" });
+        const data = await res.json();
+        if (data.count !== undefined) setCountClients(data.count);
       };
-      incrementCount();
+
+      increment();
     }
   }, [countClients]);
 
