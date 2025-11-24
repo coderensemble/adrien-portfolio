@@ -7,7 +7,6 @@ import tooltip from "@/data/tooltip.json";
 import { Info } from "lucide-react";
 
 export default function Home() {
-  
   return (
     <div className="min-h-screen flex flex-col md:flex-row justify-between items-stretch mt-20 px-8 sm:px-6 lg:px-12">
       {/* Colonne gauche */}
@@ -31,25 +30,24 @@ export default function Home() {
 
           {/* Ligne 3 : DEVELOPER + 's skills' */}
           <span className="flex items-center flex-wrap">
-            <TooltipWrapper text={tooltip.developer}>
-              <span className="text-4xl sm:text-6xl lg:text-8xl font-bold text-black dark:text-white">
-                <TextDecrypt text="DEVELOPER" />
-              </span>
-            </TooltipWrapper>
+            <span className="text-4xl sm:text-6xl lg:text-8xl font-bold text-black dark:text-white">
+              <TextDecrypt text="DEVELOPER" />
+            </span>
+
             <span className="text-base sm:text-xl lg:text-2xl font-medium text-accent relative lg:top-3 -left-1 sm:-left-2 lg:-left-3">
               &apos;s skills
             </span>
           </span>
         </h1>
 
-         {/* Tooltip global layout en bas à droite */}
-      <div className="">
-        <TooltipWrapper text={tooltip.layout}>
-          <button className="flex gap-2 px-3 py-2 text-sm text-white bg-transparent rounded-full shadow-md hover:bg-gray-700 transition">
-            <Info size={16} /> Layout info
-          </button>
-        </TooltipWrapper>
-      </div>
+        {/* Tooltip global layout en bas à droite */}
+        <div className="">
+          <TooltipWrapper text={tooltip.layout}>
+            <button className="flex gap-2 px-3 py-2 text-sm text-white bg-transparent rounded-full shadow-md hover:bg-gray-700 transition">
+              <Info size={16} /> Layout info
+            </button>
+          </TooltipWrapper>
+        </div>
       </div>
 
       {/* Colonne droite */}
