@@ -1,6 +1,5 @@
 {
- "mindset": "Custom `TextDecrypt` component: I designed a lightweight animation that reveals letters one by one. Goal: bring some dynamism to the page while keeping the component reusable and performant.",
-  "developer": "Same animation logic with `TextDecrypt`, but designed to remain fully responsive with adaptive text sizes (sm, lg).",
+  "mindset": "Custom `TextDecrypt` component: I designed a lightweight animation that reveals letters one by one. Goal: bring some dynamism to the page while keeping the component reusable and performant.",
   "projectsButton": "CSS-only animated button with a scrolling text effect. No unnecessary JavaScript → smooth and performant.",
   "contactButton": "Accessibility-focused button: hover and focus states meet WCAG AA contrast standards and are fully keyboard-accessible.",
   "layout": "Responsive layout built with Flexbox and Tailwind breakpoints. Two clear columns on desktop, simplified stacked layout on mobile.",
