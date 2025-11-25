@@ -2,14 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
 import resume from "../data/resume.json";
 import BackgroundMusic from "./Background/BackgroundMusic";
 import { useTheme } from "next-themes";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY!;
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 export const Header = () => {
   const { resolvedTheme } = useTheme();
